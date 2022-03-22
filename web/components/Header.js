@@ -1,4 +1,5 @@
 import { Transition } from "@headlessui/react"
+import Image from "next/image"
 import Link from "next/link"
 import { useRouter, withRouter } from "next/router"
 import React, { useState } from "react"
@@ -6,20 +7,8 @@ import SVG from "react-inlinesvg"
 import { classNames } from "../functions/classNames"
 import { getPathFromSlug, slugParamToPath } from "../utils/urls"
 
-const Header = ({ logo, title = "Missing title", navItems }) => {
+const Header = ({ title = "Missing title", navItems }) => {
   const router = useRouter()
-  const renderLogo = (logo) => {
-    if (!logo || !logo.asset) {
-      return null
-    }
-
-    if (logo.asset.extension === "svg") {
-      return <SVG src={logo.asset.url} />
-    }
-
-    return <img src={logo.asset.url} alt={logo.title} />
-  }
-
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
 
   return (
@@ -37,13 +26,12 @@ const Header = ({ logo, title = "Missing title", navItems }) => {
         >
           <Link href="/">
             <a title={title}>
-              {renderLogo(logo)}
-              {/* <Image
+              <Image
                 alt="Faktory logo"
                 src="/images/faktory-gold.svg"
                 height="80px"
                 width="145px"
-              /> */}
+              />
             </a>
           </Link>
         </Transition>
