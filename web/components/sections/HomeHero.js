@@ -27,7 +27,7 @@ function Hero({ headingLine1, headingLine2, headingLine3, tagline, ...rest }) {
     <div
       className="bg-dark-gray"
       style={{
-        backgroundImage: `url("/images/texture.svg")`,
+        backgroundImage: `url("/images/texture-white.svg")`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
       }}
