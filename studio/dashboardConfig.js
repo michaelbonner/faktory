@@ -12,25 +12,7 @@ export default {
       options: {
         __experimental_before: [
           {
-            name: 'vercel',
-            options: {
-              description:
-                'NOTE: Because these sites are static builds, they need to be re-deployed to see the changes when documents are published.',
-              sites: [
-                {
-                  buildHookId: '623954593ec0203fdc7fe856',
-                  title: 'Sanity Studio',
-                  name: 'faktory-studio',
-                  apiId: '90c31bb8-f0ff-4def-9d9f-583ae6dc7dc9'
-                },
-                {
-                  buildHookId: '62395459645d2b454c6258c6',
-                  title: 'Faktory Website',
-                  name: 'faktory',
-                  apiId: '80d77f4f-867e-4e39-a408-75c9074f51ae'
-                }
-              ]
-            }
+            name: 'vercel'
           }
         ],
         data: [
