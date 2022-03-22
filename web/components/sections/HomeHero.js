@@ -1,19 +1,17 @@
 import { Transition } from "@headlessui/react"
 import imageUrlBuilder from "@sanity/image-url"
+import Image from "next/image"
+import Link from "next/link"
 import PropTypes from "prop-types"
 import React, { useEffect, useRef, useState } from "react"
 import client from "../../client"
-import Image from "next/image"
-import Link from "next/link"
-
 import SimpleBlockContent from "../SimpleBlockContent"
 
 function urlFor(source) {
   return imageUrlBuilder(client).image(source)
 }
 
-function Hero(props) {
-  const { headingLine1, headingLine2, headingLine3, tagline } = props
+function Hero({ headingLine1, headingLine2, headingLine3, tagline, ...rest }) {
   const [featureImageHeight, setFeatureImageHeight] = useState(100)
   const featureImage = useRef(null)
 
@@ -47,9 +45,7 @@ function Hero(props) {
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <span className="block">
-                <SimpleBlockContent blocks={headingLine1} />
-              </span>
+              <span className="block">{headingLine1}</span>
             </Transition>
           )}
           {headingLine2 && (
@@ -63,9 +59,7 @@ function Hero(props) {
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <span className="block">
-                <SimpleBlockContent blocks={headingLine2} />
-              </span>
+              <span className="block">{headingLine2}</span>
             </Transition>
           )}
           {headingLine3 && (
@@ -79,9 +73,7 @@ function Hero(props) {
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <span className="block text-gold">
-                <SimpleBlockContent blocks={headingLine3} />
-              </span>
+              <span className="block text-gold">{headingLine3}</span>
             </Transition>
           )}
         </h1>
@@ -97,7 +89,6 @@ function Hero(props) {
           </div>
           <div className="uppercase font-display text-[40px] 2xl:text-[50px] lg:text-5xl leading-tight">
             <SimpleBlockContent blocks={tagline} />
-            {/* Something about being a<span className="block">full service agency maybe?</span> */}
           </div>
         </div>
       </div>
@@ -131,16 +122,6 @@ function Hero(props) {
         </div>
       </div>
     </div>
-    // <div>
-    //   <div>
-    //     <h1>
-    //       <span className="block">{headingLine1}</span>
-    //       <span className="block">{headingLine2}</span>
-    //       <span className="block">{headingLine3}</span>
-    //     </h1>
-    //     <div>{tagline && <SimpleBlockContent blocks={tagline} />}</div>
-    //   </div>
-    // </div>
   )
 }
 
