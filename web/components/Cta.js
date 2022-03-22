@@ -1,9 +1,9 @@
-import React from "react"
-import PropTypes from "prop-types"
-import Link from "next/link"
+import React from "react";
+import PropTypes from "prop-types";
+import Link from "next/link";
 
 function cta(props) {
-  const { title, route, link } = props
+  const { title, route, link } = props;
 
   if (route && route.slug && route.slug.current) {
     return (
@@ -16,14 +16,14 @@ function cta(props) {
       >
         <a>{title}</a>
       </Link>
-    )
+    );
   }
 
   if (link) {
-    return <a href={link}>{title}</a>
+    return <a href={link}>{title}</a>;
   }
 
-  return <a>{title}</a>
+  return <a>{title}</a>;
 }
 
 cta.propTypes = {
@@ -34,6 +34,6 @@ cta.propTypes = {
     }),
   }),
   link: PropTypes.string,
-}
+};
 
-export default cta
+export default cta;

@@ -1,15 +1,14 @@
-import { Transition } from "@headlessui/react"
-import Image from "next/image"
-import Link from "next/link"
-import { useRouter, withRouter } from "next/router"
-import React, { useState } from "react"
-import SVG from "react-inlinesvg"
-import { classNames } from "../functions/classNames"
-import { getPathFromSlug, slugParamToPath } from "../utils/urls"
+import { Transition } from "@headlessui/react";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter, withRouter } from "next/router";
+import React, { useState } from "react";
+import { classNames } from "../functions/classNames";
+import { getPathFromSlug, slugParamToPath } from "../utils/urls";
 
 const Header = ({ title = "Missing title", navItems }) => {
-  const router = useRouter()
-  const [mobileNavOpen, setMobileNavOpen] = useState(false)
+  const router = useRouter();
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-30 lg:relative flex justify-between items-end bg-white shadow-lg px-4 lg:px-14 py-2 lg:py-5">
@@ -40,7 +39,7 @@ const Header = ({ title = "Missing title", navItems }) => {
         <button
           className="p-5"
           onClick={() => {
-            setMobileNavOpen(!mobileNavOpen)
+            setMobileNavOpen(!mobileNavOpen);
           }}
           type="button"
         >
@@ -53,7 +52,11 @@ const Header = ({ title = "Missing title", navItems }) => {
               stroke="currentColor"
               strokeWidth={2}
             >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
             </svg>
           ) : (
             <svg
@@ -64,7 +67,11 @@ const Header = ({ title = "Missing title", navItems }) => {
               stroke="currentColor"
               strokeWidth={2}
             >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
             </svg>
           )}
         </button>
@@ -89,8 +96,9 @@ const Header = ({ title = "Missing title", navItems }) => {
           )}
         >
           {navItems.map((item) => {
-            const { slug, title, _id } = item
-            const isActive = slugParamToPath(router.query.slug) === slug.current
+            const { slug, title, _id } = item;
+            const isActive =
+              slugParamToPath(router.query.slug) === slug.current;
             return (
               <Link key={_id} href={getPathFromSlug(slug.current)}>
                 <a
@@ -101,12 +109,12 @@ const Header = ({ title = "Missing title", navItems }) => {
                   {title}
                 </a>
               </Link>
-            )
+            );
           })}
         </nav>
       </Transition>
     </header>
-  )
-}
+  );
+};
 
-export default withRouter(Header)
+export default withRouter(Header);

@@ -1,1 +1,1 @@
-export const classNames = (...args) => args.filter(Boolean).join(" ")
+export const classNames = (...args) => args.filter(Boolean).join(" ");

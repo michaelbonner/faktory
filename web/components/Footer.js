@@ -1,6 +1,6 @@
-import Image from "next/image"
-import Link from "next/link"
-import React from "react"
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
 function Footer() {
   return (
@@ -8,7 +8,12 @@ function Footer() {
       <div className="grid lg:grid-cols-3 gap-8 2xl:gap-12 items-start text-sm">
         <Link href="/">
           <a className="lg:col-span-1">
-            <Image alt="Faktory logo" src="/images/faktory-gray.svg" height="80px" width="145px" />
+            <Image
+              alt="Faktory logo"
+              src="/images/faktory-gray.svg"
+              height="80px"
+              width="145px"
+            />
           </a>
         </Link>
         <div className="lg:col-span-2">
@@ -27,13 +32,28 @@ function Footer() {
       <div className="text-center grid gap-12">
         <div className="flex justify-around max-w-xs grid-cols-3 mx-auto gap-8">
           <a href="https://www.facebook.com/FaktoryInc/">
-            <Image src="/images/facebook.svg" alt="Facebook logo" width="40px" height="40px" />
+            <Image
+              src="/images/facebook.svg"
+              alt="Facebook logo"
+              width="40px"
+              height="40px"
+            />
           </a>
           <a href="https://www.instagram.com/faktory/">
-            <Image src="/images/instagram.svg" alt="Instagram logo" width="40px" height="40px" />
+            <Image
+              src="/images/instagram.svg"
+              alt="Instagram logo"
+              width="40px"
+              height="40px"
+            />
           </a>
           <a href="https://www.linkedin.com/company/faktory-showroom/">
-            <Image src="/images/linkedin.svg" alt="LinkedIn logo" width="40px" height="40px" />
+            <Image
+              src="/images/linkedin.svg"
+              alt="LinkedIn logo"
+              width="40px"
+              height="40px"
+            />
           </a>
         </div>
         <p className="text-sm">
@@ -62,7 +82,7 @@ function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
 
-export default Footer
+export default Footer;

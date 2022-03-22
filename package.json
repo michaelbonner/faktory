@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "sanity-nextjs-landing-pages",
+  "name": "faktory-website",
   "version": "1.0.12",
   "scripts": {
     "build": "lerna run build --parallel",

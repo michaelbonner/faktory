@@ -1,27 +1,27 @@
-import { Transition } from "@headlessui/react"
-import imageUrlBuilder from "@sanity/image-url"
-import Image from "next/image"
-import Link from "next/link"
-import PropTypes from "prop-types"
-import React, { useEffect, useRef, useState } from "react"
-import client from "../../client"
-import SimpleBlockContent from "../SimpleBlockContent"
+import { Transition } from "@headlessui/react";
+import imageUrlBuilder from "@sanity/image-url";
+import Image from "next/image";
+import Link from "next/link";
+import PropTypes from "prop-types";
+import React, { useEffect, useRef, useState } from "react";
+import client from "../../client";
+import SimpleBlockContent from "../SimpleBlockContent";
 
 function urlFor(source) {
-  return imageUrlBuilder(client).image(source)
+  return imageUrlBuilder(client).image(source);
 }
 
 function Hero({ headingLine1, headingLine2, headingLine3, tagline, ...rest }) {
-  const [featureImageHeight, setFeatureImageHeight] = useState(100)
-  const featureImage = useRef(null)
+  const [featureImageHeight, setFeatureImageHeight] = useState(100);
+  const featureImage = useRef(null);
 
   useEffect(() => {
-    const image = featureImage.current
+    const image = featureImage.current;
     if (image) {
-      const { height } = image.getBoundingClientRect()
-      setFeatureImageHeight(height)
+      const { height } = image.getBoundingClientRect();
+      setFeatureImageHeight(height);
     }
-  }, [featureImage])
+  }, [featureImage]);
 
   return (
     <div
@@ -122,7 +122,7 @@ function Hero({ headingLine1, headingLine2, headingLine3, tagline, ...rest }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 Hero.propTypes = {
@@ -131,6 +131,6 @@ Hero.propTypes = {
   headingLine3: PropTypes.string,
   backgroundImage: PropTypes.object,
   tagline: PropTypes.array,
-}
+};
 
-export default Hero
+export default Hero;

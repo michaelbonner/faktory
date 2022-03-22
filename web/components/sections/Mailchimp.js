@@ -1,9 +1,9 @@
-import PropTypes from "prop-types"
-import React from "react"
-import MailchimpForm from "react-mailchimp-form"
+import PropTypes from "prop-types";
+import React from "react";
+import MailchimpForm from "react-mailchimp-form";
 
 export default function Mailchimp(props) {
-  const { heading, subtitle, actionUrl } = props
+  const { heading, subtitle, actionUrl } = props;
 
   return (
     <section>
@@ -48,11 +48,11 @@ export default function Mailchimp(props) {
         )}
       </div>
     </section>
-  )
+  );
 }
 
 Mailchimp.propTypes = {
   heading: PropTypes.string,
   subtitle: PropTypes.string,
   actionUrl: PropTypes.string,
-}
+};

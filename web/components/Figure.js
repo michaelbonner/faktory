@@ -1,18 +1,21 @@
-import React from "react"
-import PropTypes from "prop-types"
-import imageUrlBuilder from "@sanity/image-url"
-import client from "../client"
+import React from "react";
+import PropTypes from "prop-types";
+import imageUrlBuilder from "@sanity/image-url";
+import client from "../client";
 
-const builder = imageUrlBuilder(client)
+const builder = imageUrlBuilder(client);
 
 function Figure({ node }) {
-  const { alt, caption, asset } = node
+  const { alt, caption, asset } = node;
   if (!asset) {
-    return undefined
+    return undefined;
   }
   return (
     <figure>
-      <img src={builder.image(asset).auto("format").width(2000).url()} alt={alt} />
+      <img
+        src={builder.image(asset).auto("format").width(2000).url()}
+        alt={alt}
+      />
       {caption && (
         <figcaption>
           <div>
@@ -23,7 +26,7 @@ function Figure({ node }) {
         </figcaption>
       )}
     </figure>
-  )
+  );
 }
 
 Figure.propTypes = {
@@ -34,5 +37,5 @@ Figure.propTypes = {
       _ref: PropTypes.string,
     }),
   }),
-}
-export default Figure
+};
+export default Figure;
