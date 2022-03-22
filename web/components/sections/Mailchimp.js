@@ -1,52 +1,49 @@
-import PropTypes from 'prop-types'
-import React from 'react'
-import MailchimpForm from 'react-mailchimp-form'
-import styles from './Mailchimp.module.css'
+import PropTypes from "prop-types"
+import React from "react"
+import MailchimpForm from "react-mailchimp-form"
 
 export default function Mailchimp(props) {
-  const {heading, subtitle, actionUrl} = props
+  const { heading, subtitle, actionUrl } = props
 
   return (
-    <section className={styles.root}>
-      <div className={styles.container}>
-        <h2 className={styles.heading}>{heading}</h2>
-        <p className={styles.subtitle}>{subtitle}</p>
+    <section>
+      <div>
+        <h2>{heading}</h2>
+        <p>{subtitle}</p>
         {actionUrl && (
           <MailchimpForm
             action={actionUrl}
             fields={[
               {
-                name: 'EMAIL',
-                placeholder: 'Email',
-                type: 'email',
-                className: styles.email,
+                name: "EMAIL",
+                placeholder: "Email",
+                type: "email",
                 required: true,
               },
             ]}
-            buttonClassName={styles.button}
+            button
             styles={{
               sendingMsg: {
-                color: '#0652DD',
+                color: "#0652DD",
               },
               successMsg: {
-                color: '#009432',
+                color: "#009432",
               },
               duplicateMsg: {
-                color: '#EE5A24',
+                color: "#EE5A24",
               },
               errorMsg: {
-                color: 'red',
+                color: "red",
               },
             }}
             messages={{
-              sending: 'Sending...',
-              success: 'Thank you for subscribing!',
-              error: 'An unexpected internal error has occurred.',
-              empty: 'You must write an e-mail.',
-              duplicate: 'Already subscribed',
-              button: 'Subscribe!',
+              sending: "Sending...",
+              success: "Thank you for subscribing!",
+              error: "An unexpected internal error has occurred.",
+              empty: "You must write an e-mail.",
+              duplicate: "Already subscribed",
+              button: "Subscribe!",
             }}
-            className={styles.form}
           />
         )}
       </div>

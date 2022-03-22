@@ -1,14 +1,14 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import {PortableText} from '@portabletext/react'
-import EmbedHTML from './EmbedHTML'
-import Figure from './Figure'
+import React from "react"
+import PropTypes from "prop-types"
+import { PortableText } from "@portabletext/react"
+import EmbedHTML from "./EmbedHTML"
+import Figure from "./Figure"
 
 function SimpleBlockContent(props) {
-  const {blocks} = props
+  const { blocks } = props
 
   if (!blocks) {
-    console.error('Missing blocks')
+    console.error("Missing blocks")
     return null
   }
 

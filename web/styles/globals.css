@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1 {
+  @apply text-3xl font-bold leading-normal mb-4 uppercase;
+  @apply lg:text-5xl;
+}
+
+h2 {
+  @apply text-3xl font-bold leading-normal mb-4 uppercase text-gold;
+}
+
+h3 {
+  @apply text-2xl font-bold mb-2 text-gold;
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 1.5rem;
+}
+
+.p1 {
+  @apply text-lg mb-2;
+}
+
+.p2,
+p {
+  @apply text-lg mb-2;
+}
+
+.p3 {
+  @apply text-lg mb-2;
+}
+
+.standardButton {
+  @apply block text-center;
+  @apply lg:inline-block;
+  @apply border border-orange text-orange text-xl font-bold font-serif pt-4 pb-3 px-20 hover:bg-orange hover:text-white transition-all;
+}
+
+.whiteTransparentButton {
+  @apply block text-center;
+  @apply lg:inline-block;
+  @apply border border-white text-white text-xl font-bold font-serif pt-4 pb-3 px-20 hover:bg-orange hover:text-white transition-all;
+}
+
+.orangeFillButton {
+  @apply block text-center;
+  @apply lg:inline-block;
+  @apply bg-orange text-white font-bold font-serif pt-4 pb-3 px-10;
+}
