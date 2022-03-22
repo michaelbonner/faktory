@@ -12,7 +12,7 @@ export default {
       options: {
         __experimental_before: [
           {
-            name: 'netlify',
+            name: 'vercel',
             options: {
               description:
                 'NOTE: Because these sites are static builds, they need to be re-deployed to see the changes when documents are published.',
@@ -25,7 +25,7 @@ export default {
                 },
                 {
                   buildHookId: '62395459645d2b454c6258c6',
-                  title: 'Landing pages Website',
+                  title: 'Faktory Website',
                   name: 'faktory',
                   apiId: '80d77f4f-867e-4e39-a408-75c9074f51ae'
                 }
@@ -39,7 +39,7 @@ export default {
             value: 'https://github.com/michaelbonner/faktory',
             category: 'Code'
           },
-          { title: 'Frontend', value: 'https://faktory.netlify.app', category: 'apps' }
+          { title: 'Frontend', value: 'https://faktory-web.vercel.app', category: 'apps' }
         ]
       }
     },
