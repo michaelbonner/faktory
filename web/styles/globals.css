@@ -2,43 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
-h1 {
+.user-content h1 {
   @apply text-3xl font-bold leading-normal mb-4 uppercase;
   @apply lg:text-5xl;
 }
 
-h2 {
+.user-content h2 {
   @apply text-3xl font-bold leading-normal mb-4 uppercase text-gold;
 }
 
-h3 {
+.user-content h3 {
   @apply text-2xl font-bold mb-2 text-gold;
 }
 
-h4 {
+.user-content h4 {
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 1.2;
   margin: 0 0 1.5rem;
 }
 
-h5 {
+.user-content h5 {
   font-size: 1.25rem;
   font-weight: 700;
   line-height: 1.2;
   margin: 0 0 1.5rem;
 }
 
-.p1 {
+.user-content .p1 {
   @apply text-lg mb-2;
 }
 
-.p2,
-p {
+.user-content .p2,
+.user-content p {
   @apply text-lg mb-2;
 }
 
-.p3 {
+.user-content .p3 {
   @apply text-lg mb-2;
 }
 

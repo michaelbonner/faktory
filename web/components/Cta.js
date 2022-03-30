@@ -2,31 +2,43 @@ import React from "react";
 import PropTypes from "prop-types";
 import Link from "next/link";
 
-function cta(props) {
+function Cta(props) {
   const { title, route, link } = props;
 
   if (route && route.slug && route.slug.current) {
     return (
-      <Link
-        href={{
-          pathname: "/LandingPage",
-          query: { slug: route.slug.current },
-        }}
-        as={`/${route.slug.current}`}
-      >
-        <a>{title}</a>
-      </Link>
+      <p>
+        <Link
+          href={{
+            pathname: "/LandingPage",
+            query: { slug: route.slug.current },
+          }}
+          as={`/${route.slug.current}`}
+        >
+          <a className="standardButton">{title}</a>
+        </Link>
+      </p>
     );
   }
 
   if (link) {
-    return <a href={link}>{title}</a>;
+    return (
+      <p>
+        <a className="standardButton" href={link}>
+          {title}
+        </a>
+      </p>
+    );
   }
 
-  return <a>{title}</a>;
+  return (
+    <p>
+      <a className="standardButton">{title}</a>
+    </p>
+  );
 }
 
-cta.propTypes = {
+Cta.propTypes = {
   title: PropTypes.string.isRequired,
   route: PropTypes.shape({
     slug: PropTypes.shape({
@@ -36,4 +48,4 @@ cta.propTypes = {
   link: PropTypes.string,
 };
 
-export default cta;
+export default Cta;

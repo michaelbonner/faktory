@@ -25,7 +25,6 @@ export default {
         { type: 'homeHero' },
         { type: 'hero' },
         { type: 'imageSection' },
-        { type: 'mailchimp' },
         { type: 'textSection' }
       ]
     },

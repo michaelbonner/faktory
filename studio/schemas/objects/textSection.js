@@ -4,30 +4,30 @@ export default {
   title: 'Text',
   fields: [
     {
-      name: 'label',
-      type: 'string',
-      title: 'Label',
-    },
-    {
       name: 'heading',
       type: 'string',
-      title: 'Heading',
+      title: 'Heading'
     },
     {
       name: 'text',
       type: 'portableText',
-      title: 'Text',
+      title: 'Text'
     },
+    {
+      name: 'cta',
+      type: 'cta',
+      title: 'Call to action'
+    }
   ],
   preview: {
     select: {
-      heading: 'heading',
+      heading: 'heading'
     },
     prepare({ heading }) {
       return {
         title: `${heading}`,
-        subtitle: 'Text section',
-      };
-    },
-  },
-};
+        subtitle: 'Text section'
+      }
+    }
+  }
+}

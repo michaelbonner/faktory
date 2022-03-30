@@ -1,37 +1,38 @@
-import React from "react";
 import PropTypes from "prop-types";
-import imageUrlBuilder from "@sanity/image-url";
-import client from "../../client";
-import SimpleBlockContent from "../SimpleBlockContent";
+import React from "react";
 import Cta from "../Cta";
+import SanityImage from "../SanityImage";
+import SimpleBlockContent from "../SimpleBlockContent";
 
-const builder = imageUrlBuilder(client);
-
-function ImageSection(props) {
-  const { heading, label, text, image, cta } = props;
-
+function ImageSection({ backgroundColor, heading, text, image, cta }) {
   if (!image) {
     return null;
   }
 
+  const bgColorMap = {
+    white: "bg-near-white",
+    mint: "bg-mint",
+  };
+
   return (
-    <div>
-      <figure>
-        <img
-          src={builder.image(image).auto("format").width(2000).url()}
-          alt={heading}
-        />
-        <figcaption>
-          <div>
-            <div>
-              <div>{label}</div>
-              <h2>{heading}</h2>
-              {text && <SimpleBlockContent blocks={text} />}
-              {cta && cta.route && <Cta {...cta} />}
+    <div className={`${bgColorMap[backgroundColor]}`}>
+      <div className="max-w-7xl mx-auto px-4 py-24 lg:py-36 text-white grid lg:grid-cols-2 gap-16 items-center">
+        <SanityImage image={image} />
+        <div className="grid gap-y-4 user-content">
+          <h3 className="text-gold">{heading}</h3>
+
+          {text && (
+            <div className="text-dark-gray">
+              <SimpleBlockContent blocks={text} />
             </div>
-          </div>
-        </figcaption>
-      </figure>
+          )}
+          {cta && cta.route && (
+            <div className="mt-12">
+              <Cta {...cta} />
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 }

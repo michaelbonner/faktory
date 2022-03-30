@@ -24,9 +24,46 @@ export default {
       title: 'Tagline'
     },
     {
-      name: 'backgroundImage',
+      name: 'mainCallout',
       type: 'image',
-      title: 'Background image',
+      title: 'Main Callout',
+      fields: [
+        {
+          title: 'Alt Text',
+          name: 'alt',
+          type: 'string'
+        }
+      ],
+      options: {
+        hotspot: true
+      }
+    },
+    {
+      name: 'callout1',
+      type: 'image',
+      title: 'Callout 1',
+      fields: [
+        {
+          title: 'Alt Text',
+          name: 'alt',
+          type: 'string'
+        }
+      ],
+      options: {
+        hotspot: true
+      }
+    },
+    {
+      name: 'callout2',
+      type: 'image',
+      title: 'Callout 2',
+      fields: [
+        {
+          title: 'Alt Text',
+          name: 'alt',
+          type: 'string'
+        }
+      ],
       options: {
         hotspot: true
       }
