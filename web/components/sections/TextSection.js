@@ -4,7 +4,6 @@ import SimpleBlockContent from "../SimpleBlockContent";
 import Cta from "../Cta";
 
 function TextSection({ heading, text, cta }) {
-  console.log("cta", cta);
   return (
     <section className="bg-near-white text-center">
       <div className="max-w-7xl mx-auto px-4 py-24 lg:py-36 grid gap-16 items-center user-content">
