@@ -2,7 +2,20 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-function Footer() {
+function Footer({ navItems }) {
+  // chunk navItems into 2 columns
+  const navItemColumns = navItems.reduce(
+    (acc, navItem, index) => {
+      if (index >= Math.ceil(navItems.length / 2)) {
+        acc[1].push(navItem);
+      } else {
+        acc[0].push(navItem);
+      }
+      return acc;
+    },
+    [[], []]
+  );
+
   return (
     <footer className="grid lg:grid-cols-3 gap-8 2xl:gap-24 gap-y-24 py-24 px-4 lg:px-14 text-medium-gray text-center lg:text-left bg-dark-gray">
       <div className="grid lg:grid-cols-3 gap-8 2xl:gap-12 items-start text-sm user-content">
@@ -61,25 +74,21 @@ function Footer() {
         </p>
       </div>
       <div className="mx-auto w-full flex justify-around items-start max-w-sm font-semibold tracking-wider uppercase font-display">
-        <div className="grid gap-y-4 items-start">
-          <Link href="/work">
-            <a className="block">Work</a>
-          </Link>
-          <Link href="/work">
-            <a className="block">Case Studies</a>
-          </Link>
-          <Link href="/work">
-            <a className="block">What We Do</a>
-          </Link>
-        </div>
-        <div className="grid gap-y-4 items-start">
-          <Link href="/work">
-            <a className="block">Who We Are</a>
-          </Link>
-          <Link href="/work">
-            <a className="block">Contact</a>
-          </Link>
-        </div>
+        {/* print each column */}
+        {navItemColumns.map((navItemColumn, index) => {
+          return (
+            <div className="grid gap-y-4 items-start" key={index}>
+              {navItemColumn.map((navItem) => {
+                // print each navItem
+                return (
+                  <Link href="/work" key={navItem._id}>
+                    <a className="block">{navItem.title}</a>
+                  </Link>
+                );
+              })}
+            </div>
+          );
+        })}
       </div>
     </footer>
   );
