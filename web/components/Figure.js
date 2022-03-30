@@ -1,21 +1,14 @@
-import React from "react";
 import PropTypes from "prop-types";
-import imageUrlBuilder from "@sanity/image-url";
-import client from "../client";
+import React from "react";
+import SanityImage from "./SanityImage";
 
-const builder = imageUrlBuilder(client);
-
-function Figure({ node }) {
-  const { alt, caption, asset } = node;
+function Figure({ alt, caption, asset }) {
   if (!asset) {
     return undefined;
   }
   return (
     <figure>
-      <img
-        src={builder.image(asset).auto("format").width(2000).url()}
-        alt={alt}
-      />
+      <SanityImage image={asset} alt={alt} />
       {caption && (
         <figcaption>
           <div>
