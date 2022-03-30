@@ -5,7 +5,7 @@ import React from "react";
 function Footer() {
   return (
     <footer className="grid lg:grid-cols-3 gap-8 2xl:gap-24 gap-y-24 py-24 px-4 lg:px-14 text-medium-gray text-center lg:text-left bg-dark-gray">
-      <div className="grid lg:grid-cols-3 gap-8 2xl:gap-12 items-start text-sm">
+      <div className="grid lg:grid-cols-3 gap-8 2xl:gap-12 items-start text-sm user-content">
         <Link href="/">
           <a className="lg:col-span-1">
             <Image
