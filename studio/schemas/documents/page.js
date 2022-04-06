@@ -22,6 +22,7 @@ export default {
       type: 'array',
       title: 'Page sections',
       of: [
+        { type: 'titleHero' },
         { type: 'homeHero' },
         { type: 'hero' },
         { type: 'imageSection' },

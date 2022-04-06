@@ -21,6 +21,7 @@ import simplePortableText from './objects/simplePortableText'
 // Landing page sections
 import homeHero from './objects/homeHero'
 import hero from './objects/hero'
+import titleHero from './objects/titleHero'
 import imageSection from './objects/imageSection'
 import textSection from './objects/textSection'
 
@@ -35,6 +36,7 @@ export default createSchema({
     figure,
     hero,
     homeHero,
+    titleHero,
     imageSection,
     internalLink,
     link,
