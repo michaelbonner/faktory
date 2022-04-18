@@ -24,6 +24,8 @@ import hero from './objects/hero'
 import titleHero from './objects/titleHero'
 import imageSection from './objects/imageSection'
 import textSection from './objects/textSection'
+import fullSizeImage from './objects/fullSizeImage'
+import titleWithGridTextBlocks from './objects/titleWithGridTextBlocks'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -45,6 +47,8 @@ export default createSchema({
     route,
     simplePortableText,
     siteConfig,
-    textSection
+    textSection,
+    fullSizeImage,
+    titleWithGridTextBlocks
   ])
 })

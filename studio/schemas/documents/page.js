@@ -25,8 +25,10 @@ export default {
         { type: 'titleHero' },
         { type: 'homeHero' },
         { type: 'hero' },
+        { type: 'fullSizeImage' },
         { type: 'imageSection' },
-        { type: 'textSection' }
+        { type: 'textSection' },
+        { type: 'titleWithGridTextBlocks' }
       ]
     },
     {
