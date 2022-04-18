@@ -10,7 +10,7 @@ module.exports = {
       colors: {
         gold: "#746f4b",
         orange: "#e66448",
-        almostWhite: "#f4f4f4",
+        "almost-white": "#f4f4f4",
         mint: "#bedbd4",
         "light-gray": "#e2e2e2",
         "medium-gray": "#818180",

@@ -8,11 +8,7 @@ import client from "../../client";
 import SanityImage from "../SanityImage";
 import SimpleBlockContent from "../SimpleBlockContent";
 
-function urlFor(source) {
-  return imageUrlBuilder(client).image(source);
-}
-
-function Hero({
+function HomeHero({
   headingLine1,
   headingLine2,
   headingLine3,
@@ -148,7 +144,7 @@ function Hero({
   );
 }
 
-Hero.propTypes = {
+HomeHero.propTypes = {
   headingLine1: PropTypes.string,
   headingLine2: PropTypes.string,
   headingLine3: PropTypes.string,
@@ -158,4 +154,4 @@ Hero.propTypes = {
   callout2: PropTypes.object,
 };
 
-export default Hero;
+export default HomeHero;

@@ -4,21 +4,36 @@ import Cta from "../Cta";
 import SanityImage from "../SanityImage";
 import SimpleBlockContent from "../SimpleBlockContent";
 
-function ImageSection({ backgroundColor, heading, text, image, cta }) {
+function ImageSection({
+  backgroundColor,
+  cta,
+  heading,
+  image,
+  imagePosition,
+  text,
+}) {
   if (!image) {
     return null;
   }
 
   const bgColorMap = {
     white: "bg-near-white",
+    "lighter-gray": "bg-almost-white",
+    "light-gray": "bg-light-gray",
     mint: "bg-mint",
     peach: "bg-peach",
   };
 
   return (
     <div className={`${bgColorMap[backgroundColor]}`}>
-      <div className="max-w-7xl mx-auto px-4 py-24 lg:py-36 text-white grid lg:grid-cols-2 gap-16 items-center">
-        <SanityImage image={image} />
+      <div
+        className={`max-w-7xl mx-auto px-4 py-24 lg:py-36 text-white grid lg:grid-cols-2 gap-16 items-center`}
+      >
+        {image && (
+          <div className={`${imagePosition === "right" && "order-last"}`}>
+            <SanityImage image={image} />
+          </div>
+        )}
         <div className="grid gap-y-4 user-content">
           <h3 className="text-gold">{heading}</h3>
 
@@ -50,6 +65,7 @@ ImageSection.propTypes = {
   backgroundImage: PropTypes.string,
   tagline: PropTypes.string,
   cta: PropTypes.object,
+  imagePosition: PropTypes.string,
 };
 
 export default ImageSection;

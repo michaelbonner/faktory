@@ -30,10 +30,24 @@ export default {
       options: {
         list: [
           { title: 'White', value: 'white' },
+          { title: 'Light gray', value: 'light-gray' },
+          { title: 'Lighter gray', value: 'lighter-gray' },
           { title: 'Mint', value: 'mint' },
           { title: 'Peach', value: 'peach' }
         ]
       }
+    },
+    {
+      name: 'imagePosition',
+      type: 'string',
+      title: 'Image Position',
+      options: {
+        list: [
+          { title: 'Image on left', value: 'left' },
+          { title: 'Image on right', value: 'right' }
+        ]
+      },
+      default: 'left'
     }
   ],
   preview: {

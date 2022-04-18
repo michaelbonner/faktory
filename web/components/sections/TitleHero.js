@@ -1,18 +1,13 @@
 import { Transition } from "@headlessui/react";
-import imageUrlBuilder from "@sanity/image-url";
 import Image from "next/image";
-import Link from "next/link";
 import PropTypes from "prop-types";
-import React, { useEffect, useRef, useState } from "react";
-import client from "../../client";
-import SanityImage from "../SanityImage";
-import SimpleBlockContent from "../SimpleBlockContent";
+import React from "react";
 
 function Hero({ headingLine1, headingLine2, body }) {
   return (
     <>
       <div
-        className="bg-white"
+        className="bg-almost-white"
         style={{
           backgroundImage: `url("/images/texture.svg")`,
           backgroundRepeat: "no-repeat",

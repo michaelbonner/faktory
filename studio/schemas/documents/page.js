@@ -24,11 +24,11 @@ export default {
       of: [
         { type: 'titleHero' },
         { type: 'homeHero' },
-        { type: 'hero' },
         { type: 'fullSizeImage' },
         { type: 'imageSection' },
         { type: 'textSection' },
-        { type: 'titleWithGridTextBlocks' }
+        { type: 'titleWithGridTextBlocks' },
+        { type: 'quoteSection' }
       ]
     },
     {

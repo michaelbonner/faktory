@@ -20,9 +20,9 @@ import simplePortableText from './objects/simplePortableText'
 
 // Landing page sections
 import homeHero from './objects/homeHero'
-import hero from './objects/hero'
 import titleHero from './objects/titleHero'
 import imageSection from './objects/imageSection'
+import quoteSection from './objects/quoteSection'
 import textSection from './objects/textSection'
 import fullSizeImage from './objects/fullSizeImage'
 import titleWithGridTextBlocks from './objects/titleWithGridTextBlocks'
@@ -36,10 +36,10 @@ export default createSchema({
     cta,
     embedHTML,
     figure,
-    hero,
     homeHero,
     titleHero,
     imageSection,
+    quoteSection,
     internalLink,
     link,
     page,
