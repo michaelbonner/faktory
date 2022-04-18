@@ -12,10 +12,6 @@ function ImageSection({
   imagePosition,
   text,
 }) {
-  if (!image) {
-    return null;
-  }
-
   const bgColorMap = {
     white: "bg-near-white",
     "lighter-gray": "bg-almost-white",
@@ -27,7 +23,9 @@ function ImageSection({
   return (
     <div className={`${bgColorMap[backgroundColor]}`}>
       <div
-        className={`max-w-7xl mx-auto px-4 py-24 lg:py-36 text-white grid lg:grid-cols-2 gap-16 items-center`}
+        className={`max-w-7xl mx-auto px-4 py-24 lg:py-36 text-white grid ${
+          image ? "lg:grid-cols-2" : "text-center"
+        } gap-16 items-center`}
       >
         {image && (
           <div className={`${imagePosition === "right" && "order-last"}`}>
