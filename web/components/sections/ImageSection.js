@@ -12,6 +12,7 @@ function ImageSection({ backgroundColor, heading, text, image, cta }) {
   const bgColorMap = {
     white: "bg-near-white",
     mint: "bg-mint",
+    peach: "bg-peach",
   };
 
   return (

@@ -30,7 +30,8 @@ export default {
       options: {
         list: [
           { title: 'White', value: 'white' },
-          { title: 'Mint', value: 'mint' }
+          { title: 'Mint', value: 'mint' },
+          { title: 'Peach', value: 'peach' }
         ]
       }
     }
