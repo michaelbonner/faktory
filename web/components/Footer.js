@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { getPathFromSlug } from "../utils/urls";
 
 function Footer({ navItems }) {
   // chunk navItems into 2 columns
@@ -81,7 +82,10 @@ function Footer({ navItems }) {
               {navItemColumn.map((navItem) => {
                 // print each navItem
                 return (
-                  <Link href="/work" key={navItem._id}>
+                  <Link
+                    href={getPathFromSlug(navItem?.slug?.current)}
+                    key={navItem._id}
+                  >
                     <a className="block">{navItem.title}</a>
                   </Link>
                 );
