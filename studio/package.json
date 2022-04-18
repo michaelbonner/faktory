@@ -10,14 +10,14 @@
     "test": "sanity check"
   },
   "dependencies": {
-    "@sanity/base": "^2.29.3",
-    "@sanity/core": "^2.29.3",
-    "@sanity/dashboard": "^2.29.3",
-    "@sanity/default-layout": "^2.29.3",
-    "@sanity/default-login": "^2.29.3",
-    "@sanity/desk-tool": "^2.29.3",
-    "@sanity/studio-hints": "^2.29.3",
-    "@sanity/vision": "^2.29.3",
+    "@sanity/base": "^2.29.5",
+    "@sanity/core": "^2.29.5",
+    "@sanity/dashboard": "^2.29.5",
+    "@sanity/default-layout": "^2.29.5",
+    "@sanity/default-login": "^2.29.5",
+    "@sanity/desk-tool": "^2.29.5",
+    "@sanity/studio-hints": "^2.29.5",
+    "@sanity/vision": "^2.29.5",
     "bcp47": "^1.1.2",
     "prop-types": "^15.8.1",
     "react": "^17.0.2",
@@ -28,7 +28,7 @@
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
-    "@sanity/cli": "^2.29.3",
+    "@sanity/cli": "^2.29.5",
     "babel-eslint": "^10.1.0",
     "eslint": "^8.8.0",
     "eslint-config-standard": "^16.0.3",

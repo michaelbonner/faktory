@@ -16,12 +16,20 @@ function StructureMenuWidget(props) {
         <h3>Edit your content</h3>
       </div>
 
-      <div>
+      <div
+        style={{
+          display: 'flex',
+          gap: '1rem'
+        }}
+      >
         {props.structure.items.map(item => {
           const Icon = getIconComponent(item)
           return (
             <div key={item.id}>
-              <Link href={`/desk/${item.id}`}>
+              <Link
+                href={`/desk/${item.id}`}
+                style={{ display: 'flex', gap: '0.4rem', alignItems: 'end' }}
+              >
                 <div>
                   <Icon />
                 </div>
