@@ -24,19 +24,19 @@ function TitleWithGridTextBlocks({ title, column1, column2, column3 }) {
               </Transition>
             )}
           </h2>
-          <div className="grid lg:grid-cols-3 gap-8 leading-10">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-8 leading-10">
             {column1 && (
-              <div>
+              <div className="text-sm">
                 <SimpleBlockContent blocks={column1} />
               </div>
             )}
             {column2 && (
-              <div>
+              <div className="text-sm">
                 <SimpleBlockContent blocks={column2} />
               </div>
             )}
             {column3 && (
-              <div>
+              <div className="text-sm">
                 <SimpleBlockContent blocks={column3} />
               </div>
             )}

@@ -38,6 +38,11 @@
   @apply text-lg mb-2;
 }
 
+.user-content .text-sm p {
+  font-size: 16px;
+  @apply mb-2;
+}
+
 .user-content .p3 {
   @apply text-lg mb-2;
 }
