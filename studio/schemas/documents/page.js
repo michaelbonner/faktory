@@ -28,7 +28,8 @@ export default {
         { type: 'imageSection' },
         { type: 'textSection' },
         { type: 'titleWithGridTextBlocks' },
-        { type: 'quoteSection' }
+        { type: 'quoteSection' },
+        { type: 'leadershipTeam' }
       ]
     },
     {
