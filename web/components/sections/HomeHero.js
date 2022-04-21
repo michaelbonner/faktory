@@ -29,6 +29,8 @@ function HomeHero({
     }
   }, [featureImage]);
 
+  console.log({headingLine1, headingLine2, headingLine3})
+
   return (
     <>
       <div
@@ -45,9 +47,9 @@ function HomeHero({
               <Transition
                 appear={true}
                 show={true}
-                enter="relative transition-all duration-700"
-                enterFrom="opacity-0 -bottom-2"
-                enterTo="opacity-100 bottom-0"
+                enter="relative ease-in transition-all duration-500"
+                enterFrom="opacity-0 translate-y-24"
+                enterTo="opacity-100 translate-y-0"
                 leave="transition-opacity duration-200"
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
@@ -59,9 +61,9 @@ function HomeHero({
               <Transition
                 appear={true}
                 show={true}
-                enter="relative transition-all duration-[900ms]"
-                enterFrom="opacity-0 -bottom-2"
-                enterTo="opacity-100 bottom-0"
+                enter="relative ease-in transition-all delay-500 duration-500"
+                enterFrom="opacity-0 translate-y-24"
+                enterTo="opacity-100 translate-y-0"
                 leave="transition-opacity duration-200"
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
@@ -73,9 +75,9 @@ function HomeHero({
               <Transition
                 appear={true}
                 show={true}
-                enter="relative transition-all duration-[1100ms]"
-                enterFrom="opacity-0 -bottom-2"
-                enterTo="opacity-100 bottom-0"
+                enter="relative ease-in transition-all delay-1000 duration-500"
+                enterFrom="opacity-0 translate-y-24"
+                enterTo="opacity-100 translate-y-0"
                 leave="transition-opacity duration-200"
                 leaveFrom="opacity-100"
                 leaveTo="opacity-0"
