@@ -29,7 +29,6 @@ function HomeHero({
     }
   }, [featureImage]);
 
-  console.log({headingLine1, headingLine2, headingLine3})
 
   return (
     <>
