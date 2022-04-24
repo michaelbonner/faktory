@@ -7,6 +7,7 @@ import React, { useEffect, useRef, useState } from "react";
 import client from "../../client";
 import SanityImage from "../SanityImage";
 import SimpleBlockContent from "../SimpleBlockContent";
+import { motion } from "framer-motion";
 
 function HomeHero({
   headingLine1,
@@ -43,46 +44,85 @@ function HomeHero({
         <div className="max-w-7xl mx-auto px-4 py-24 lg:py-36 text-white grid lg:grid-cols-2 items-end">
           <h1 className="text-[20vw] lg:text-[160px] 2xl:text-[200px] leading-[0.8] font-bold font-serif">
             {headingLine1 && (
-              <Transition
-                appear={true}
-                show={true}
-                enter="relative ease-in transition-all duration-500"
-                enterFrom="opacity-0 translate-y-24"
-                enterTo="opacity-100 translate-y-0"
-                leave="transition-opacity duration-200"
-                leaveFrom="opacity-100"
-                leaveTo="opacity-0"
+              <motion.div
+                initial={{
+                  y: 60,
+                  opacity: 0,
+                }}
+                animate={{
+                  y: 0,
+                  opacity: 1
+                }}
+                transition={{
+                  type: "spring",
+                  duration: 0.6,
+                  delay: 0.4
+                }}
+                // appear={true}
+                // show={true}
+                // enter="relative ease-in transition-all duration-500"
+                // enterFrom="opacity-0 translate-y-24"
+                // enterTo="opacity-100 translate-y-0"
+                // leave="transition-opacity duration-200"
+                // leaveFrom="opacity-100"
+                // leaveTo="opacity-0"
               >
                 <span className="block">{headingLine1}</span>
-              </Transition>
+              </motion.div>
             )}
             {headingLine2 && (
-              <Transition
-                appear={true}
-                show={true}
-                enter="relative ease-in transition-all delay-500 duration-500"
-                enterFrom="opacity-0 translate-y-24"
-                enterTo="opacity-100 translate-y-0"
-                leave="transition-opacity duration-200"
-                leaveFrom="opacity-100"
-                leaveTo="opacity-0"
+              <motion.div
+              initial={{
+                y: 60,
+                opacity: 0,
+              }}
+              animate={{
+                y: 0,
+                opacity: 1
+              }}
+              transition={{
+                type: "spring",
+                duration: 0.6,
+                delay: 0.6
+              }}
+                // appear={true}
+                // show={true}
+                // enter="relative ease-in transition-all delay-500 duration-500"
+                // enterFrom="opacity-0 translate-y-24"
+                // enterTo="opacity-100 translate-y-0"
+                // leave="transition-opacity duration-200"
+                // leaveFrom="opacity-100"
+                // leaveTo="opacity-0"
               >
                 <span className="block">{headingLine2}</span>
-              </Transition>
+              </motion.div>
             )}
             {headingLine3 && (
-              <Transition
-                appear={true}
-                show={true}
-                enter="relative ease-in transition-all delay-1000 duration-500"
-                enterFrom="opacity-0 translate-y-24"
-                enterTo="opacity-100 translate-y-0"
-                leave="transition-opacity duration-200"
-                leaveFrom="opacity-100"
-                leaveTo="opacity-0"
+              <motion.div
+              initial={{
+                y: 60,
+                opacity: 0,
+              }}
+              animate={{
+                y: 0,
+                opacity: 1
+              }}
+              transition={{
+                type: "spring",
+                duration: 0.6,
+                delay: 0.8 
+              }}
+                // appear={true}
+                // show={true}
+                // enter="relative ease-in transition-all delay-1000 duration-500"
+                // enterFrom="opacity-0 translate-y-24"
+                // enterTo="opacity-100 translate-y-0"
+                // leave="transition-opacity duration-200"
+                // leaveFrom="opacity-100"
+                // leaveTo="opacity-0"
               >
                 <span className="block text-gold">{headingLine3}</span>
-              </Transition>
+              </motion.div>
             )}
           </h1>
           <div className="grid gap-y-24 justify-end">
