@@ -1,6 +1,7 @@
 import React from "react";
 import client from "../client";
 import "../styles/globals.css";
+import { AnimatePresence } from "framer-motion";
 
 const siteConfigQuery = `
   *[_id == "global-config"] {
@@ -18,7 +19,12 @@ const siteConfigQuery = `
   `;
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  return (
+    //Animate Presence will be required for any animations scrolled into view
+    <AnimatePresence>
+      <Component {...pageProps} />
+    </AnimatePresence>
+  );
 }
 
 MyApp.getInitialProps = async ({ Component, ctx }) => {

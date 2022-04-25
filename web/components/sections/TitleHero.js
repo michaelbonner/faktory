@@ -1,5 +1,4 @@
 import React from "react";
-import { Transition } from "@headlessui/react";
 import Image from "next/image";
 import PropTypes from "prop-types";
 import { motion } from "framer-motion";
@@ -19,20 +18,20 @@ function Hero({ headingLine1, headingLine2, body }) {
           <h1 className="text-7xl lg:text-9xl leading-[0.8] font-bold font-serif text-gold">
             {headingLine1 && (
               <motion.div
-              initial={{
-                opacity: 0,
-                y: 60,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{
-                ease: "easeInOut",
-                delay: 0.2,
-                duration: 0.8,
-                type: "spring",
-              }}
+                initial={{
+                  opacity: 0,
+                  y: 60,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  ease: "easeInOut",
+                  delay: 0.2,
+                  duration: 0.8,
+                  type: "spring",
+                }}
               >
                 <span className="block">{headingLine1}</span>
               </motion.div>
@@ -41,20 +40,20 @@ function Hero({ headingLine1, headingLine2, body }) {
           <h2 className="font-bold uppercase text-gold text-2xl lg:text-4xl mt-8">
             {headingLine2 && (
               <motion.div
-              initial={{
-                opacity: 0,
-                y: 60,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{
-                ease: "easeInOut",
-                delay: 0.3,
-                duration: 0.8,
-                type: "spring",
-              }}
+                initial={{
+                  opacity: 0,
+                  y: 60,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  ease: "easeInOut",
+                  delay: 0.3,
+                  duration: 0.8,
+                  type: "spring",
+                }}
               >
                 <span className="block">{headingLine2}</span>
               </motion.div>

@@ -29,7 +29,6 @@ function HomeHero({
     }
   }, [featureImage]);
 
-
   return (
     <>
       <div
@@ -64,40 +63,40 @@ function HomeHero({
             )}
             {headingLine2 && (
               <motion.div
-              initial={{
-                opacity: 0,
-                y: 60,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{
-                ease: "easeInOut",
-                delay: 0.3,
-                duration: 0.8,
-                type: "spring",
-              }}
+                initial={{
+                  opacity: 0,
+                  y: 60,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  ease: "easeInOut",
+                  delay: 0.3,
+                  duration: 0.8,
+                  type: "spring",
+                }}
               >
                 <span className="block">{headingLine2}</span>
               </motion.div>
             )}
             {headingLine3 && (
               <motion.div
-              initial={{
-                opacity: 0,
-                y: 60,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{
-                ease: "easeInOut",
-                delay: 0.4,
-                duration: 0.8,
-                type: "spring",
-              }}
+                initial={{
+                  opacity: 0,
+                  y: 60,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                transition={{
+                  ease: "easeInOut",
+                  delay: 0.4,
+                  duration: 0.8,
+                  type: "spring",
+                }}
               >
                 <span className="block text-gold">{headingLine3}</span>
               </motion.div>
