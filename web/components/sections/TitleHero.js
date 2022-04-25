@@ -1,7 +1,8 @@
+import React from "react";
 import { Transition } from "@headlessui/react";
 import Image from "next/image";
 import PropTypes from "prop-types";
-import React from "react";
+import { motion } from "framer-motion";
 
 function Hero({ headingLine1, headingLine2, body }) {
   return (
@@ -17,34 +18,46 @@ function Hero({ headingLine1, headingLine2, body }) {
         <div className="max-w-7xl mx-auto px-4 py-24 lg:py-36 text-dark-gray grid gap-8">
           <h1 className="text-7xl lg:text-9xl leading-[0.8] font-bold font-serif text-gold">
             {headingLine1 && (
-              <Transition
-                appear={true}
-                show={true}
-                enter="relative transition-all duration-700"
-                enterFrom="opacity-0 -bottom-2"
-                enterTo="opacity-100 bottom-0"
-                leave="transition-opacity duration-200"
-                leaveFrom="opacity-100"
-                leaveTo="opacity-0"
+              <motion.div
+              initial={{
+                opacity: 0,
+                y: 60,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                ease: "easeInOut",
+                delay: 0.2,
+                duration: 0.8,
+                type: "spring",
+              }}
               >
                 <span className="block">{headingLine1}</span>
-              </Transition>
+              </motion.div>
             )}
           </h1>
           <h2 className="font-bold uppercase text-gold text-2xl lg:text-4xl mt-8">
             {headingLine2 && (
-              <Transition
-                appear={true}
-                show={true}
-                enter="relative transition-all duration-[900ms]"
-                enterFrom="opacity-0 -bottom-2"
-                enterTo="opacity-100 bottom-0"
-                leave="transition-opacity duration-200"
-                leaveFrom="opacity-100"
-                leaveTo="opacity-0"
+              <motion.div
+              initial={{
+                opacity: 0,
+                y: 60,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                ease: "easeInOut",
+                delay: 0.3,
+                duration: 0.8,
+                type: "spring",
+              }}
               >
                 <span className="block">{headingLine2}</span>
-              </Transition>
+              </motion.div>
             )}
           </h2>
           <div className="grid lg:flex justify-between gap-8">

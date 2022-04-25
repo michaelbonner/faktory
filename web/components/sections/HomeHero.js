@@ -1,4 +1,3 @@
-import { Transition } from "@headlessui/react";
 import imageUrlBuilder from "@sanity/image-url";
 import Image from "next/image";
 import Link from "next/link";
@@ -46,26 +45,19 @@ function HomeHero({
             {headingLine1 && (
               <motion.div
                 initial={{
-                  y: 60,
                   opacity: 0,
+                  y: 60,
                 }}
                 animate={{
+                  opacity: 1,
                   y: 0,
-                  opacity: 1
                 }}
                 transition={{
+                  ease: "easeInOut",
+                  delay: 0.2,
+                  duration: 0.8,
                   type: "spring",
-                  duration: 0.6,
-                  delay: 0.4
                 }}
-                // appear={true}
-                // show={true}
-                // enter="relative ease-in transition-all duration-500"
-                // enterFrom="opacity-0 translate-y-24"
-                // enterTo="opacity-100 translate-y-0"
-                // leave="transition-opacity duration-200"
-                // leaveFrom="opacity-100"
-                // leaveTo="opacity-0"
               >
                 <span className="block">{headingLine1}</span>
               </motion.div>
@@ -73,26 +65,19 @@ function HomeHero({
             {headingLine2 && (
               <motion.div
               initial={{
-                y: 60,
                 opacity: 0,
+                y: 60,
               }}
               animate={{
+                opacity: 1,
                 y: 0,
-                opacity: 1
               }}
               transition={{
+                ease: "easeInOut",
+                delay: 0.3,
+                duration: 0.8,
                 type: "spring",
-                duration: 0.6,
-                delay: 0.6
               }}
-                // appear={true}
-                // show={true}
-                // enter="relative ease-in transition-all delay-500 duration-500"
-                // enterFrom="opacity-0 translate-y-24"
-                // enterTo="opacity-100 translate-y-0"
-                // leave="transition-opacity duration-200"
-                // leaveFrom="opacity-100"
-                // leaveTo="opacity-0"
               >
                 <span className="block">{headingLine2}</span>
               </motion.div>
@@ -100,26 +85,19 @@ function HomeHero({
             {headingLine3 && (
               <motion.div
               initial={{
-                y: 60,
                 opacity: 0,
+                y: 60,
               }}
               animate={{
+                opacity: 1,
                 y: 0,
-                opacity: 1
               }}
               transition={{
+                ease: "easeInOut",
+                delay: 0.4,
+                duration: 0.8,
                 type: "spring",
-                duration: 0.6,
-                delay: 0.8 
               }}
-                // appear={true}
-                // show={true}
-                // enter="relative ease-in transition-all delay-1000 duration-500"
-                // enterFrom="opacity-0 translate-y-24"
-                // enterTo="opacity-100 translate-y-0"
-                // leave="transition-opacity duration-200"
-                // leaveFrom="opacity-100"
-                // leaveTo="opacity-0"
               >
                 <span className="block text-gold">{headingLine3}</span>
               </motion.div>
