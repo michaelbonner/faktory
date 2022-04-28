@@ -133,6 +133,7 @@ function HomeHero({
           >
             <div className="absolute inset-0">
               <SanityImage
+                animate={false}
                 objectFit="cover"
                 layout="fill"
                 image={mainCallout}
@@ -147,14 +148,10 @@ function HomeHero({
         </div>
       </div>
       <div className="bg-near-white pt-4 pb-24">
-        <div className="max-w-7xl px-4 mx-auto">
+        <div className="max-w-7xl bg-near-white px-4 mx-auto">
           <div className="grid lg:grid-cols-2 gap-8 my-4">
-            <div className="relative aspect-w-16">
-              <SanityImage image={callout1} />
-            </div>
-            <div className="relative aspect-w-16">
-              <SanityImage image={callout2} />
-            </div>
+              <SanityImage animate={true} image={callout1} />
+              <SanityImage animate={true} image={callout2} />
           </div>
         </div>
       </div>
