@@ -3,6 +3,7 @@ import React from "react";
 import Cta from "../Cta";
 import SanityImage from "../SanityImage";
 import SimpleBlockContent from "../SimpleBlockContent";
+import { motion } from "framer-motion";
 
 function ImageSection({
   backgroundColor,
@@ -29,7 +30,7 @@ function ImageSection({
       >
         {image && (
           <div className={`${imagePosition === "right" && "order-last"}`}>
-            <SanityImage image={image} />
+            <SanityImage animate={true} image={image} />
           </div>
         )}
         <div className="grid gap-y-4 user-content">
