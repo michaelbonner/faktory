@@ -3,16 +3,16 @@
 @tailwind utilities;
 
 .user-content h1 {
-  @apply text-3xl font-bold leading-normal mb-4 uppercase;
+  @apply text-3xl font-bold leading-normal mb-4 uppercase font-display;
   @apply lg:text-5xl;
 }
 
 .user-content h2 {
-  @apply text-3xl font-bold leading-normal mb-4 uppercase text-gold;
+  @apply text-3xl font-bold leading-normal mb-4 uppercase text-gold font-display;
 }
 
 .user-content h3 {
-  @apply text-2xl font-bold mb-2 text-gold;
+  @apply text-2xl font-bold mb-2 text-gold font-display;
 }
 
 .user-content h4 {
