@@ -39,6 +39,11 @@ export default {
       }
     },
     {
+      name: 'cta',
+      type: 'cta',
+      title: 'Main Callout call to action'
+    },
+    {
       name: 'callout1',
       type: 'image',
       title: 'Callout 1',

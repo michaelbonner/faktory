@@ -2,9 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Link from "next/link";
 
-function Cta(props) {
-  const { title, route, link } = props;
-
+function Cta({ className = "", title, route, link }) {
   if (route && route.slug && route.slug.current) {
     return (
       <p>
@@ -15,7 +13,7 @@ function Cta(props) {
           }}
           as={`/${route.slug.current}`}
         >
-          <a className="standardButton">{title}</a>
+          <a className={className || "standardButton"}>{title}</a>
         </Link>
       </p>
     );
@@ -24,7 +22,7 @@ function Cta(props) {
   if (link) {
     return (
       <p>
-        <a className="standardButton" href={link}>
+        <a className={className || "standardButton"} href={link}>
           {title}
         </a>
       </p>
@@ -33,12 +31,13 @@ function Cta(props) {
 
   return (
     <p>
-      <a className="standardButton">{title}</a>
+      <a className={className || "standardButton"}>{title}</a>
     </p>
   );
 }
 
 Cta.propTypes = {
+  className: PropTypes.string,
   title: PropTypes.string.isRequired,
   route: PropTypes.shape({
     slug: PropTypes.shape({

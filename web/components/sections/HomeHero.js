@@ -7,6 +7,7 @@ import client from "../../client";
 import SanityImage from "../SanityImage";
 import SimpleBlockContent from "../SimpleBlockContent";
 import { motion } from "framer-motion";
+import Cta from "../Cta";
 
 function HomeHero({
   headingLine1,
@@ -14,6 +15,7 @@ function HomeHero({
   headingLine3,
   tagline,
   mainCallout,
+  cta,
   callout1,
   callout2,
   ...rest
@@ -140,9 +142,9 @@ function HomeHero({
               />
             </div>
             <div className="absolute flex items-end justify-center p-12 inset-0 opacity-0 group-hover:opacity-100 bg-orange bg-opacity-70 transition-all duration-500">
-              <Link href="/">
-                <a className="whiteTransparentButton">See more</a>
-              </Link>
+              {cta && cta.route && (
+                <Cta className="whiteTransparentButton" {...cta} />
+              )}
             </div>
           </div>
         </div>
@@ -150,8 +152,8 @@ function HomeHero({
       <div className="bg-near-white pt-4 pb-24">
         <div className="max-w-7xl bg-near-white px-4 mx-auto">
           <div className="grid lg:grid-cols-2 gap-8 my-4">
-              <SanityImage animate={true} image={callout1} />
-              <SanityImage animate={true} image={callout2} />
+            <SanityImage animate={true} image={callout1} />
+            <SanityImage animate={true} image={callout2} />
           </div>
         </div>
       </div>
@@ -164,6 +166,7 @@ HomeHero.propTypes = {
   headingLine2: PropTypes.string,
   headingLine3: PropTypes.string,
   mainCallout: PropTypes.object,
+  cta: PropTypes.object,
   tagline: PropTypes.array,
   callout1: PropTypes.object,
   callout2: PropTypes.object,

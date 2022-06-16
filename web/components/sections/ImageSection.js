@@ -1,9 +1,7 @@
 import PropTypes from "prop-types";
-import React from "react";
 import Cta from "../Cta";
 import SanityImage from "../SanityImage";
 import SimpleBlockContent from "../SimpleBlockContent";
-import { motion } from "framer-motion";
 
 function ImageSection({
   backgroundColor,
