@@ -29,7 +29,8 @@ export default {
         { type: 'textSection' },
         { type: 'titleWithGridTextBlocks' },
         { type: 'quoteSection' },
-        { type: 'leadershipTeam' }
+        { type: 'leadershipTeam' },
+        { type: 'contactInfoSection' }
       ]
     },
     {

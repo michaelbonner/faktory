@@ -1,7 +1,7 @@
 export default {
   type: 'object',
-  name: 'contactInfo',
-  title: 'Contact Info',
+  name: 'contactInfoSection',
+  title: 'Contact Info Section',
   fields: [
     {
       name: 'contact',
@@ -17,7 +17,8 @@ export default {
   preview: {
     prepare() {
       return {
-        title: 'Contact Info'
+        title: 'Contact Info Section',
+        subtitle: 'Contact Info Section'
       }
     }
   }
