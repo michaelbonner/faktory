@@ -18,6 +18,7 @@ import link from './objects/link'
 import portableText from './objects/portableText'
 import simplePortableText from './objects/simplePortableText'
 import person from './objects/person'
+import office from './objects/office'
 
 // Landing page sections
 import homeHero from './objects/homeHero'
@@ -28,6 +29,7 @@ import textSection from './objects/textSection'
 import fullSizeImage from './objects/fullSizeImage'
 import titleWithGridTextBlocks from './objects/titleWithGridTextBlocks'
 import leadershipTeam from './objects/leadershipTeam'
+import contactInfoSection from './objects/contactInfoSection'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -53,6 +55,8 @@ export default createSchema({
     textSection,
     fullSizeImage,
     titleWithGridTextBlocks,
-    leadershipTeam
+    leadershipTeam,
+    contactInfoSection,
+    office
   ])
 })
