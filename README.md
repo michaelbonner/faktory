@@ -1,14 +1,16 @@
 # Faktory
 
-_SEO friendly page builder in React.js. Heroes, sign-up forms and calls to action._
+Custom marketing site build for Faktory
 
-Deployed from [sanity.io/create](https://www.sanity.io/create/?template=sanity-io%2Fsanity-template-nextjs-landing-pages).
+## URLs
 
-## What you have
+- Public site: https://faktory.vercel.app/
+- CMS: https://faktory-studio.vercel.app/
 
-- A dynamic frontend with [Next.js](https://nextjs.org)
-- Structured content using [Sanity.io](https://www.sanity.io)
-- Global deployment on [Vercel](https://vercel.com)
+## Directories
+
+- `./studio/`: Sanity Studio for editing content
+- `./web/`: Public Next.js site
 
 ## Quick start
 
@@ -21,10 +23,4 @@ Deployed from [sanity.io/create](https://www.sanity.io/create/?template=sanity-i
 
 ## Deploy changes
 
-Vercel automatically deploys new changes commited to master on GitHub. If you want to change deployment branch, do so in [build & deploy settings on Vercel](https://vercel.com/docs/concepts/deployments/overview).
-
-## Stuck? Get help
-
-[![Slack Community Button](https://slack.sanity.io/badge.svg)](https://slack.sanity.io/)
-
-Join [Sanity’s developer community](https://slack.sanity.io) or ping us [on twitter](https://twitter.com/sanity_io).
+Vercel automatically deploys new changes commited to the repo.
