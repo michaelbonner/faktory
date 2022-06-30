@@ -1,4 +1,4 @@
-![Faktory Banner](./web/public/og-image.jpg)
+![Faktory Banner](./web/public/og-image.png)
 
 # Faktory
 
