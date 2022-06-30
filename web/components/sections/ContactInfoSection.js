@@ -53,15 +53,6 @@ function ContactInfoSection({ contact }) {
               width={1200}
               height={800}
             />
-            <p
-              className={classNames(
-                "font-medium pt-12",
-                "md:text-3xl md:pt-24"
-              )}
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
           </div>
         </div>
       </div>
