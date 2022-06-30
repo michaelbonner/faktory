@@ -1,3 +1,6 @@
+![Faktory Banner](./web/public/og-image.jpg)
+
+
 # Faktory
 
 Custom marketing site build for Faktory
