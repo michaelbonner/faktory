@@ -1,7 +1,7 @@
 export default {
   name: 'person',
   title: 'Person',
-  type: 'document',
+  type: 'object',
   fields: [
     { name: 'name', title: 'Name', type: 'string' },
     { name: 'image', title: 'Image', type: 'figure' },

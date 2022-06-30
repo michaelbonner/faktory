@@ -1,7 +1,7 @@
 export default {
   name: 'office',
   title: 'Office',
-  type: 'document',
+  type: 'object',
   fields: [
     { name: 'office', title: 'Office', type: 'string' },
     { name: 'info', title: 'Info', type: 'array', of: [{ type: 'block' }] }
