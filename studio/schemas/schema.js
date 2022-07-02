@@ -8,6 +8,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 import page from './documents/page'
 import route from './documents/route'
 import siteConfig from './documents/siteConfig'
+import workItem from './documents/workItem'
 
 // Object types
 import cta from './objects/cta'
@@ -30,6 +31,7 @@ import fullSizeImage from './objects/fullSizeImage'
 import titleWithGridTextBlocks from './objects/titleWithGridTextBlocks'
 import leadershipTeam from './objects/leadershipTeam'
 import contactInfoSection from './objects/contactInfoSection'
+import workItemsSection from './objects/workItemsSection'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -52,11 +54,13 @@ export default createSchema({
     route,
     simplePortableText,
     siteConfig,
+    workItem,
     textSection,
     fullSizeImage,
     titleWithGridTextBlocks,
     leadershipTeam,
     contactInfoSection,
-    office
+    office,
+    workItemsSection
   ])
 })

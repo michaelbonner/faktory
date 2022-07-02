@@ -20,7 +20,8 @@ content[] {
   ctas[] {
     ...,
     route->
-  }
+  },
+  workItems[]->
 }`;
 
 /**

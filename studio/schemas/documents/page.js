@@ -30,7 +30,8 @@ export default {
         { type: 'titleWithGridTextBlocks' },
         { type: 'quoteSection' },
         { type: 'leadershipTeam' },
-        { type: 'contactInfoSection' }
+        { type: 'contactInfoSection' },
+        { type: 'workItemsSection' }
       ]
     },
     {

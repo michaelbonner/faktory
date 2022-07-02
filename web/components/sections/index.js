@@ -7,3 +7,4 @@ export { default as TextSection } from "./TextSection";
 export { default as TitleHero } from "./TitleHero";
 export { default as TitleWithGridTextBlocks } from "./TitleWithGridTextBlocks";
 export { default as ContactInfoSection } from "./ContactInfoSection";
+export { default as WorkItemsSection } from "./WorkItemsSection";
