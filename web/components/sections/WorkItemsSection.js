@@ -8,7 +8,7 @@ function Hero({ workItems }) {
       <div
         className={classNames(
           "grid grid-cols-1",
-          "lg:mx-auto lg:w-2/3 lg:gap-x-10 lg:grid-cols-2"
+          "lg:mx-auto lg:w-2/3 lg:gap-x-10 lg:grid-cols-2 lg:-mt-24"
         )}
       >
         {workItems.length > 0 &&
