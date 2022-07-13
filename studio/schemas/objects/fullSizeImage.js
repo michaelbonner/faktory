@@ -10,6 +10,12 @@ export default {
       options: {
         hotspot: true
       }
+    },
+    {
+      name: 'videoId',
+      title: 'Video ID',
+      type: 'string',
+      description: 'Add full URL to video here (e.g. https://vimeo.com/123456789)'
     }
   ],
   preview: {
