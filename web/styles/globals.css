@@ -49,8 +49,8 @@
 
 .standardButton {
   @apply block text-center;
-  @apply lg:inline-block;
-  @apply border border-orange text-orange text-xl font-bold font-serif pt-4 pb-3 px-20 hover:bg-orange hover:text-white transition-all;
+  @apply lg:inline-block lg:px-20;
+  @apply border border-orange text-orange text-xl font-bold font-serif pt-4 pb-3 px-10 hover:bg-orange hover:text-white transition-all;
 }
 
 .whiteTransparentButton {
