@@ -13,11 +13,6 @@ export default {
   ],
   fields: [
     {
-      name: 'title',
-      type: 'string',
-      title: 'Title'
-    },
-    {
       title: 'Slug',
       name: 'slug',
       type: 'slug',
@@ -32,6 +27,21 @@ export default {
       }
     },
     {
+      name: 'title',
+      type: 'string',
+      title: 'Project Title'
+    },
+    {
+      name: 'client',
+      type: 'string',
+      title: 'Client'
+    },
+    {
+      name: 'workImage',
+      type: 'image',
+      title: 'Work Image'
+    },
+    {
       name: 'content',
       type: 'array',
       title: 'Page sections',
@@ -44,7 +54,8 @@ export default {
         { type: 'titleWithGridTextBlocks' },
         { type: 'quoteSection' },
         { type: 'leadershipTeam' },
-        { type: 'contactInfoSection' }
+        { type: 'contactInfoSection' },
+        { type: 'workItemsSection' }
       ]
     },
     {
