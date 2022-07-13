@@ -6,7 +6,7 @@ import ReactPlayer from "react-player";
 function FullSizeImage({ image, videoId }) {
   return (
     <>
-      <div className="bg-dark-gray mx-auto">
+      <div className="bg-dark-gray">
         {!videoId ? (
           <SanityImage image={image} />
         ) : (
