@@ -49,6 +49,19 @@ export const getServerSideProps = async ({ params }) => {
       `
       )
       .then((res) => (res?.frontpage ? { ...res.frontpage, slug } : undefined));
+  } else if (params.slug.length > 1 && params.slug[0] === "work") {
+    // Work item route
+    data = await client
+      .fetch(
+        // Get the route document with one of the possible slugs for the given requested path
+        groq`*[_type == "workItem" && slug.current == '${params.slug[1]}'][0]{
+            ${pageFragment}
+        }`
+      )
+      .then((res) => {
+        console.log("res", res);
+        return res?.content ? { ...res, slug } : undefined;
+      });
   } else {
     // Regular route
     data = await client
