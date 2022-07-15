@@ -8,3 +8,4 @@ export { default as TitleHero } from "./TitleHero";
 export { default as TitleWithGridTextBlocks } from "./TitleWithGridTextBlocks";
 export { default as ContactInfoSection } from "./ContactInfoSection";
 export { default as WorkItemsSection } from "./WorkItemsSection";
+export { default as CaseStudiesSection } from "./CaseStudiesSection";

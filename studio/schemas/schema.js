@@ -9,6 +9,7 @@ import page from './documents/page'
 import route from './documents/route'
 import siteConfig from './documents/siteConfig'
 import workItem from './documents/workItem'
+import caseStudy from './documents/caseStudy'
 
 // Object types
 import cta from './objects/cta'
@@ -32,6 +33,7 @@ import titleWithGridTextBlocks from './objects/titleWithGridTextBlocks'
 import leadershipTeam from './objects/leadershipTeam'
 import contactInfoSection from './objects/contactInfoSection'
 import workItemsSection from './objects/workItemsSection'
+import caseStudiesSection from './objects/caseStudiesSection'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -61,6 +63,8 @@ export default createSchema({
     leadershipTeam,
     contactInfoSection,
     office,
-    workItemsSection
+    workItemsSection,
+    caseStudy,
+    caseStudiesSection
   ])
 })

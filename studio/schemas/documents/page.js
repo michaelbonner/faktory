@@ -31,7 +31,8 @@ export default {
         { type: 'quoteSection' },
         { type: 'leadershipTeam' },
         { type: 'contactInfoSection' },
-        { type: 'workItemsSection' }
+        { type: 'workItemsSection' },
+        { type: 'caseStudiesSection' }
       ]
     },
     {
