@@ -22,6 +22,8 @@ content[] {
     route->
   },
   workItems[]->
+  ,
+  caseStudies[]->
 }`;
 
 /**
@@ -59,9 +61,21 @@ export const getServerSideProps = async ({ params }) => {
         }`
       )
       .then((res) => {
-        console.log("res", res);
         return res?.content ? { ...res, slug } : undefined;
       });
+  } else if (params.slug.length > 1 && params.slug[0] === "case-studies") {
+    // caseStudy item route
+    data = await client
+      .fetch(
+        // Get the route document with one of the possible slugs for the given requested path
+        groq`*[_type == "caseStudy" && slug.current == '${params.slug[1]}'][0]{
+            ${pageFragment}
+        }`
+      )
+      .then((res) => {
+        return res?.content ? { ...res, slug } : undefined;
+      });
+    console.log(data, "data");
   } else {
     // Regular route
     data = await client

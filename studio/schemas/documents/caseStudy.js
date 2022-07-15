@@ -1,10 +1,10 @@
-import { JoystickIcon } from '@sanity/icons'
+import { ClipboardImageIcon } from '@sanity/icons'
 
 export default {
-  name: 'workItem',
+  name: 'caseStudy',
   type: 'document',
-  title: 'Work Item',
-  icon: JoystickIcon,
+  title: 'Case Study',
+  icon: ClipboardImageIcon,
   fieldsets: [
     {
       title: 'SEO & metadata',
@@ -27,6 +27,11 @@ export default {
       }
     },
     {
+      name: 'caseStudyImage',
+      type: 'image',
+      title: 'Case Study Image'
+    },
+    {
       name: 'title',
       type: 'string',
       title: 'Project Title'
@@ -37,9 +42,17 @@ export default {
       title: 'Client'
     },
     {
-      name: 'workImage',
-      type: 'image',
-      title: 'Work Image'
+      title: 'Color List',
+      description: 'Background color for /case-studies page',
+      name: 'colors',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Salmon', value: '#eebaa5' },
+          { title: 'Green', value: '#bedbd4' },
+          { title: 'Grey', value: '#e2e2e2' }
+        ]
+      }
     },
     {
       name: 'content',
@@ -52,10 +65,7 @@ export default {
         { type: 'imageSection' },
         { type: 'textSection' },
         { type: 'titleWithGridTextBlocks' },
-        { type: 'quoteSection' },
-        { type: 'leadershipTeam' },
-        { type: 'contactInfoSection' },
-        { type: 'workItemsSection' }
+        { type: 'quoteSection' }
       ]
     },
     {
@@ -77,7 +87,7 @@ export default {
   preview: {
     select: {
       title: 'title',
-      media: 'workImage'
+      media: 'caseStudyImage'
     }
   }
 }
