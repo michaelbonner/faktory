@@ -37,7 +37,7 @@ function Hero({ headingLine1, headingLine2, body }) {
               </motion.div>
             )}
           </h1>
-          <h2 className="font-bold uppercase text-gold text-2xl lg:text-4xl mt-8">
+          <h2 className="font-bold text-gold text-2xl lg:text-4xl mt-8">
             {headingLine2 && (
               <motion.div
                 initial={{

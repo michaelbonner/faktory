@@ -31,7 +31,7 @@ function CaseStudiesSection({ caseStudies }) {
               >
                 <h2
                   className={classNames(
-                    "font-bold uppercase text-gold text-2xl",
+                    "font-bold text-gold text-2xl",
                     "lg:text-4xl"
                   )}
                 >
@@ -39,7 +39,7 @@ function CaseStudiesSection({ caseStudies }) {
                 </h2>
                 <h4
                   className={classNames(
-                    "font-bold uppercase text-gold text-sm mt-4",
+                    "font-bold text-gold text-sm mt-4",
                     "lg:text-lg"
                   )}
                 >
