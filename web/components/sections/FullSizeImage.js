@@ -11,10 +11,10 @@ function FullSizeImage({ image, videoId }) {
           <SanityImage image={image} />
         ) : (
           <div className="relative pt-[56.25%]">
-            {" "}
-            {/* Responsive, full-width, video player */}
             <ReactPlayer
               className="absolute top-0 left-0"
+              controls
+              loop={true}
               url={videoId}
               width="100%"
               height="100%"
