@@ -15,6 +15,7 @@ function FullSizeImage({ image, videoId }) {
               className="absolute top-0 left-0"
               controls
               loop={true}
+              playing={true}
               url={videoId}
               width="100%"
               height="100%"
