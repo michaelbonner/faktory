@@ -16,6 +16,7 @@ function FullSizeImage({ image, videoId }) {
               controls
               loop={true}
               playing={true}
+              volume={0}
               url={videoId}
               width="100%"
               height="100%"
