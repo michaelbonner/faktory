@@ -7,7 +7,7 @@ function LeadershipTeam({ team }) {
   return (
     <>
       <div className="bg-white py-12 text-center lg:py-24">
-        <h3 className="text-2xl font-bold mb-2 text-gold font-display">
+        <h3 className="text-2xl font-bold mb-2 text-gold font-display uppercase">
           Faktory Leadership
         </h3>
         <div
