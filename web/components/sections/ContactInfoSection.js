@@ -41,19 +41,6 @@ function ContactInfoSection({ contact }) {
           >
             info@faktorymail.com
           </a>
-          <div
-            className={classNames(
-              "flex flex-col justify-center mt-12",
-              "lg:mt-24"
-            )}
-          >
-            <Image
-              src="/images/map.svg"
-              alt="Coverage Map"
-              width={1200}
-              height={800}
-            />
-          </div>
         </div>
       </div>
     </>
