@@ -14,6 +14,18 @@ export default {
       title: 'Text'
     },
     {
+      name: 'textAlign',
+      type: 'string',
+      title: 'Text alignment',
+      options: {
+        list: [
+          { title: 'Justified', value: 'justify' },
+          { title: 'Center', value: 'center' },
+          { title: 'Right', value: 'right' }
+        ]
+      }
+    },
+    {
       name: 'image',
       type: 'figure',
       title: 'Image'

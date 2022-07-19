@@ -10,6 +10,7 @@ function ImageSection({
   image,
   imagePosition,
   text,
+  textAlign,
 }) {
   const bgColorMap = {
     white: "bg-near-white",
@@ -31,7 +32,12 @@ function ImageSection({
             <SanityImage animate={true} image={image} />
           </div>
         )}
-        <div className="grid gap-y-4 user-content">
+        <div
+          className="grid gap-y-4 user-content"
+          style={{
+            "text-align": `${textAlign}`,
+          }}
+        >
           <h3 className="text-gold">{heading}</h3>
 
           {text && (
@@ -54,6 +60,7 @@ ImageSection.propTypes = {
   heading: PropTypes.string,
   label: PropTypes.string,
   text: PropTypes.array,
+  textAlign: PropTypes.string,
   image: PropTypes.shape({
     asset: PropTypes.shape({
       _ref: PropTypes.string,
