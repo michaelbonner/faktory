@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import RenderSections from "../RenderSections";
 import { classNames } from "../../functions/classNames";
 import SanityImage from "../SanityImage";
 import Link from "next/link";
@@ -20,8 +19,6 @@ function CaseStudiesSection({ caseStudies }) {
             >
               <div className="w-1/3 lg:w-2/3 mx-auto pb-8">
                 {caseStudyImage && <SanityImage image={caseStudyImage} />}
-
-                {/* <RenderSections sections={caseStudy.content} /> */}
               </div>
               <div
                 className="lg:pt-96 pb-12"
@@ -31,7 +28,7 @@ function CaseStudiesSection({ caseStudies }) {
               >
                 <h2
                   className={classNames(
-                    "font-bold text-gold text-2xl",
+                    "font-display font-bold text-gold text-2xl",
                     "lg:text-4xl"
                   )}
                 >

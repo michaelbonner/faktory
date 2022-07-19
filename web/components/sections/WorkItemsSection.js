@@ -23,7 +23,7 @@ function WorkItemsSection({ workItems }) {
                 {workImage && <SanityImage image={workImage} />}
                 <h2
                   className={classNames(
-                    "font-bold text-gold text-2xl mt-8",
+                    "font-display font-bold text-gold text-2xl mt-8",
                     "lg:text-4xl"
                   )}
                 >
