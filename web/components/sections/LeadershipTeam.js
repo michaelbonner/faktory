@@ -6,7 +6,10 @@ import SanityImage from "../SanityImage";
 function LeadershipTeam({ team }) {
   return (
     <>
-      <div className="bg-white py-12 lg:py-24">
+      <div className="bg-white py-12 text-center lg:py-24">
+        <h3 className="text-2xl font-bold mb-2 text-gold font-display">
+          Faktory Leadership
+        </h3>
         <div
           className={classNames(
             "max-w-7xl mx-auto px-4 py-8 lg:py-16 text-dark-gray",
