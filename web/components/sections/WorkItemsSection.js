@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import RenderSections from "../RenderSections";
 import { classNames } from "../../functions/classNames";
 import SanityImage from "../SanityImage";
 import Link from "next/link";
@@ -22,10 +21,9 @@ function WorkItemsSection({ workItems }) {
                 key={workItem._id}
               >
                 {workImage && <SanityImage image={workImage} />}
-                {/* <RenderSections sections={workItem.content} /> */}
                 <h2
                   className={classNames(
-                    "font-bold uppercase text-gold text-2xl mt-8",
+                    "font-bold text-gold text-2xl mt-8",
                     "lg:text-4xl"
                   )}
                 >
@@ -33,7 +31,7 @@ function WorkItemsSection({ workItems }) {
                 </h2>
                 <h4
                   className={classNames(
-                    "font-bold uppercase text-gold text-sm mt-4",
+                    "font-bold text-gold text-sm mt-4",
                     "lg:text-lg"
                   )}
                 >

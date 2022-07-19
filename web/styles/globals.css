@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 .user-content h1 {
-  @apply text-3xl font-bold leading-normal mb-4 uppercase font-display;
+  @apply text-3xl font-bold leading-normal mb-4 font-display;
   @apply lg:text-5xl;
 }
 
 .user-content h2 {
-  @apply text-3xl font-bold leading-normal mb-4 uppercase text-gold font-display;
+  @apply text-3xl font-bold leading-normal mb-4 text-gold font-display;
 }
 
 .user-content h3 {
