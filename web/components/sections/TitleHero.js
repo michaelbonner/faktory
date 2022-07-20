@@ -60,7 +60,7 @@ function Hero({ headingLine1, headingLine2, body }) {
             )}
           </h2>
           <div className="grid lg:flex justify-between gap-8">
-            <div className="max-w-2xl text-2xl">
+            <div className="max-w-4xl text-2xl">
               <p>{body}</p>
             </div>
             <div className="grid gap-y-24 justify-end">
