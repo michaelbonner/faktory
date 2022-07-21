@@ -26,6 +26,39 @@ export default {
       }
     },
     {
+      title: 'Color List',
+      description: 'Background color',
+      name: 'colors',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Salmon', value: '#eebaa5' },
+          { title: 'Green', value: '#bedbd4' },
+          { title: 'Grey', value: '#e2e2e2' }
+        ]
+      }
+    },
+    {
+      name: 'textColor',
+      type: 'string',
+      title: 'Text color',
+      description: 'Text color',
+      options: {
+        list: [
+          { title: 'Almost White', value: '#f4f4f4' },
+          { title: 'Dark Grey', value: '#2f2d2d' }
+        ]
+      }
+    },
+    {
+      name: 'backgroundImage',
+      type: 'image',
+      title: 'Background image',
+      options: {
+        hotspot: true
+      }
+    },
+    {
       name: 'cta',
       type: 'cta',
       title: 'Call to action'
