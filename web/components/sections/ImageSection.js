@@ -23,7 +23,7 @@ function ImageSection({
   return (
     <div className={`${bgColorMap[backgroundColor]}`}>
       <div
-        className={`max-w-7xl mx-auto px-4 py-24 lg:py-36 text-white grid ${
+        className={`max-w-7xl mx-auto px-4 py-24 text-white grid ${
           image ? "lg:grid-cols-2" : "text-center"
         } gap-16 items-center`}
       >
