@@ -18,7 +18,7 @@ function TextSection({
   textAlign,
   colors,
   backgroundImage,
-  textColor,
+  // textColor,
 }) {
   const image = urlFor(backgroundImage?.asset._ref);
   return (
@@ -27,10 +27,11 @@ function TextSection({
       style={{
         "text-align": `${textAlign}`,
         "background-color": `${colors}`,
-        backgroundImage: `url(${image})`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        color: `${textColor}`,
+        // backgroundImage:
+        //   typeof image === "undefined" ? "none" : `url(${image})`,
+        // backgroundRepeat: "no-repeat",
+        // backgroundSize: "cover",
+        // color: `${textColor}`,
       }}
     >
       <div className="max-w-7xl mx-auto px-4 py-12 lg:py-36 grid gap-8 lg:gap-16 items-center user-content">
