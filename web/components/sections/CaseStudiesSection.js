@@ -27,7 +27,7 @@ function CaseStudiesSection({
         caseStudies.map((caseStudy) => {
           const caseStudyImage = caseStudy.caseStudyImage?.asset._ref;
           return (
-            <>
+            <div key={caseStudy._id}>
               <div
                 className="lg:max-w-7xl lg:mx-auto lg:px-4 lg:-mt-24"
                 style={{
@@ -68,7 +68,6 @@ function CaseStudiesSection({
                   "w-full text-center",
                   "lg:-mt-64 lg:mb-48"
                 )}
-                key={caseStudy._id}
               >
                 <div
                   className={classNames("py-12", "lg:pt-96 lg:pb-24")}
@@ -94,7 +93,7 @@ function CaseStudiesSection({
                   </h4>
                 </div>
               </div>
-            </>
+            </div>
           );
         })}
     </>
