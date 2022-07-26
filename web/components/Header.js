@@ -82,7 +82,7 @@ const Header = ({ title = "Missing title", navItems }) => {
         enter="relative transition-all duration-500"
         enterFrom="opacity-0 -bottom-2"
         enterTo="opacity-100 bottom-0"
-        leave="transition-opacity duration-200"
+        leave="transition-opacity duration-500"
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
@@ -104,6 +104,9 @@ const Header = ({ title = "Missing title", navItems }) => {
                 <a
                   data-is-active={isActive ? "true" : "false"}
                   aria-current={isActive}
+                  onClick={() => {
+                    setMobileNavOpen(!mobileNavOpen);
+                  }}
                   className="block py-4 lg:py-0 px-1 lg:inline-block border-t lg:border-t-0 border-b-2 border-transparent hover:border-b-gold hover:text-gold transition-all tracking-wide"
                 >
                   {title}
