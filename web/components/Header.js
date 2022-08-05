@@ -105,7 +105,7 @@ const Header = ({ title = "Missing title", navItems }) => {
                   data-is-active={isActive ? "true" : "false"}
                   aria-current={isActive}
                   onClick={() => {
-                    setMobileNavOpen(!mobileNavOpen);
+                    setMobileNavOpen(false);
                   }}
                   className="block py-4 lg:py-0 px-1 lg:inline-block border-t lg:border-t-0 border-b-2 border-transparent hover:border-b-gold hover:text-gold transition-all tracking-wide"
                 >
