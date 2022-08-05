@@ -45,7 +45,7 @@ function Footer({ navItems }) {
       </div>
       <div className="text-center grid gap-12">
         <div className="flex justify-around max-w-xs grid-cols-3 mx-auto gap-8">
-          <a href="https://www.facebook.com/FaktoryInc/">
+          <a href="https://www.facebook.com/faktoryagency/">
             <Image
               src="/images/facebook.svg"
               alt="Facebook logo"
