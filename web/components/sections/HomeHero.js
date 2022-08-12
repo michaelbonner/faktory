@@ -1,13 +1,10 @@
-import imageUrlBuilder from "@sanity/image-url";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import Link from "next/link";
 import PropTypes from "prop-types";
 import React, { useEffect, useRef, useState } from "react";
-import client from "../../client";
+import Cta from "../Cta";
 import SanityImage from "../SanityImage";
 import SimpleBlockContent from "../SimpleBlockContent";
-import { motion } from "framer-motion";
-import Cta from "../Cta";
 
 function HomeHero({
   headingLine1,
