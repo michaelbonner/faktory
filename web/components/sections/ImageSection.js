@@ -45,7 +45,7 @@ function ImageSection({
               <SimpleBlockContent blocks={text} />
             </div>
           )}
-          {cta && cta.route && (
+          {cta && (
             <div className="mt-12">
               <Cta {...cta} />
             </div>
