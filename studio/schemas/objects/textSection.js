@@ -20,6 +20,7 @@ export default {
       options: {
         list: [
           { title: 'Justified', value: 'justify' },
+          { title: 'Left', value: 'left' },
           { title: 'Center', value: 'center' },
           { title: 'Right', value: 'right' }
         ]
