@@ -61,22 +61,26 @@ function WorkItemsSection({ workItems }) {
                 </div>
                 <div className={classNames("w-full text-center")}>
                   <div className={classNames("py-12")}>
-                    <h2
-                      className={classNames(
-                        "font-display font-bold text-gold text-2xl",
-                        "lg:text-4xl"
-                      )}
-                    >
-                      {workItem.title}
-                    </h2>
-                    <h4
-                      className={classNames(
-                        "font-bold text-gold text-sm mt-4",
-                        "lg:text-lg"
-                      )}
-                    >
-                      {workItem.client}
-                    </h4>
+                    <Link href={`/work/${workItem.slug.current}`}>
+                      <a>
+                        <h2
+                          className={classNames(
+                            "font-display font-bold text-gold text-2xl",
+                            "lg:text-4xl"
+                          )}
+                        >
+                          {workItem.title}
+                        </h2>
+                        <h4
+                          className={classNames(
+                            "font-bold text-gold text-sm mt-4",
+                            "lg:text-lg"
+                          )}
+                        >
+                          {workItem.client}
+                        </h4>
+                      </a>
+                    </Link>
                   </div>
                 </div>
               </div>

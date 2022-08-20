@@ -75,7 +75,6 @@ export const getServerSideProps = async ({ params }) => {
       .then((res) => {
         return res?.content ? { ...res, slug } : undefined;
       });
-    console.log(data, "data");
   } else {
     // Regular route
     data = await client

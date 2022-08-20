@@ -75,22 +75,26 @@ function CaseStudiesSection({
                     backgroundColor: `${caseStudy.colors}`,
                   }}
                 >
-                  <h2
-                    className={classNames(
-                      "font-display font-bold text-gold text-2xl",
-                      "lg:text-4xl"
-                    )}
-                  >
-                    {caseStudy.title}
-                  </h2>
-                  <h4
-                    className={classNames(
-                      "font-bold text-gold text-sm mt-4",
-                      "lg:text-lg"
-                    )}
-                  >
-                    {caseStudy.client}
-                  </h4>
+                  <Link href={`/case-studies/${caseStudy.slug.current}`}>
+                    <a>
+                      <h2
+                        className={classNames(
+                          "font-display font-bold text-gold text-2xl",
+                          "lg:text-4xl"
+                        )}
+                      >
+                        {caseStudy.title}
+                      </h2>
+                      <h4
+                        className={classNames(
+                          "font-bold text-gold text-sm mt-4",
+                          "lg:text-lg"
+                        )}
+                      >
+                        {caseStudy.client}
+                      </h4>
+                    </a>
+                  </Link>
                 </div>
               </div>
             </div>
