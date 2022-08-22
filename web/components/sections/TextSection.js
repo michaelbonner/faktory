@@ -2,36 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import SimpleBlockContent from "../SimpleBlockContent";
 import Cta from "../Cta";
-// import imageUrlBuilder from "@sanity/image-url";
-// import client from "../../client";
-
-// const builder = imageUrlBuilder(client);
-
-// function urlFor(source) {
-//   return builder.image(source);
-// }
-
-function TextSection({
-  heading,
-  text,
-  cta,
-  textAlign,
-  colors,
-  backgroundImage,
-  // textColor,
-}) {
-  // const image = urlFor(backgroundImage?.asset._ref);
+function TextSection({ heading, text, cta, textAlign, colors }) {
   return (
     <section
       className="bg-near-white"
       style={{
         "text-align": `${textAlign}`,
         "background-color": `${colors}`,
-        // backgroundImage:
-        //   typeof image === "undefined" ? "none" : `url(${image})`,
-        // backgroundRepeat: "no-repeat",
-        // backgroundSize: "cover",
-        // color: `${textColor}`,
       }}
     >
       <div className="max-w-7xl mx-auto px-4 py-12 lg:py-24 grid gap-8 items-center user-content">

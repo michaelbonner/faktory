@@ -2,12 +2,31 @@ import { Transition } from "@headlessui/react";
 import PropTypes from "prop-types";
 import React from "react";
 import SimpleBlockContent from "../SimpleBlockContent";
+import { classNames } from "../../functions/classNames";
 
-function TitleWithGridTextBlocks({ title, column1, column2, column3 }) {
+function TitleWithGridTextBlocks({
+  title,
+  column1,
+  column2,
+  column3,
+  topMargin,
+  bottomMargin,
+}) {
   return (
     <>
-      <div className="bg-white">
-        <div className="user-content max-w-7xl mx-auto px-4 py-8 lg:py-16 text-dark-gray grid gap-8">
+      <div
+        className="bg-white"
+        style={{
+          "margin-top": `${topMargin}`,
+          "margin-bottom": `${bottomMargin}`,
+        }}
+      >
+        <div
+          className={classNames(
+            "user-content max-w-7xl mx-auto px-4 py-8 text-dark-gray grid gap-8",
+            "lg:py-16"
+          )}
+        >
           <h2>
             {title && (
               <Transition
@@ -52,6 +71,8 @@ TitleWithGridTextBlocks.propTypes = {
   column1: PropTypes.arrayOf(PropTypes.object),
   column2: PropTypes.arrayOf(PropTypes.object),
   column3: PropTypes.arrayOf(PropTypes.object),
+  topMargin: PropTypes.string,
+  bottomMargin: PropTypes.string,
 };
 
 export default TitleWithGridTextBlocks;
