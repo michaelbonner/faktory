@@ -21,7 +21,8 @@ function WorkItemsSection({ workItems }) {
       <div
         className={classNames(
           "grid grid-cols-1",
-          "lg:mx-auto lg:w-4/5 lg:gap-y-24 lg:grid-cols-2 lg:-mt-24"
+          "lg:mx-auto lg:w-4/5 lg:gap-y-12 lg:grid-cols-2 lg:-mt-24",
+          "3xl:gap-x-12"
         )}
       >
         {workItems.length > 0 &&
