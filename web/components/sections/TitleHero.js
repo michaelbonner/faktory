@@ -14,8 +14,8 @@ function Hero({ headingLine1, headingLine2, body }) {
           backgroundSize: "cover",
         }}
       >
-        <div className="max-w-7xl mx-auto px-4 py-24 lg:py-36 text-dark-gray grid gap-8">
-          <h1 className="text-7xl lg:text-9xl leading-[0.8] font-bold font-serif text-gold">
+        <div className="max-w-7xl mx-auto px-4 py-24 lg:py-36 text-dark-gray grid gap-6">
+          <h1 className="text-5xl 3xl:text-7xl 4xl:text-8xl leading-[0.8] font-bold font-serif text-gold">
             {headingLine1 && (
               <motion.div
                 initial={{
@@ -37,8 +37,8 @@ function Hero({ headingLine1, headingLine2, body }) {
               </motion.div>
             )}
           </h1>
-          <h2 className="font-bold font-display text-gold text-2xl lg:text-4xl mt-8">
-            {headingLine2 && (
+          {headingLine2 && (
+            <h2 className="font-bold font-display text-gold text-2xl lg:text-4xl mt-8">
               <motion.div
                 initial={{
                   opacity: 0,
@@ -57,8 +57,8 @@ function Hero({ headingLine1, headingLine2, body }) {
               >
                 <span className="block">{headingLine2}</span>
               </motion.div>
-            )}
-          </h2>
+            </h2>
+          )}
           <div className="grid lg:flex justify-between gap-8">
             <div className="max-w-4xl text-2xl">
               <p>{body}</p>

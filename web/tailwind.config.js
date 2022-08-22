@@ -17,6 +17,10 @@ module.exports = {
         "dark-gray": "#2f2d2d",
         peach: "#eebaa5",
       },
+      screens: {
+        "3xl": "1900px",
+        "4xl": "2400px",
+      },
     },
     fontFamily: {
       serif: ["Vollkorn", ...defaultTheme.fontFamily.serif],

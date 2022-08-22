@@ -21,7 +21,8 @@ function WorkItemsSection({ workItems }) {
       <div
         className={classNames(
           "grid grid-cols-1",
-          "lg:mx-auto lg:w-4/5 lg:gap-x-20 lg:gap-y-48 lg:grid-cols-2"
+          "lg:mx-auto lg:w-4/5 lg:gap-y-12 lg:grid-cols-2 lg:-mt-24",
+          "3xl:gap-x-12"
         )}
       >
         {workItems.length > 0 &&
@@ -30,7 +31,10 @@ function WorkItemsSection({ workItems }) {
             return (
               <div key={workItem._id}>
                 <div
-                  className="lg:max-w-7xl lg:mx-auto lg:px-4 lg:-mt-24"
+                  className={classNames(
+                    "lg:max-w-xl lg:mx-auto lg:px-4 ",
+                    "3xl:max-w-3xl"
+                  )}
                   style={{
                     marginBottom: `${featureImageHeight / 2}px`,
                     maxHeight: `${featureImageHeight / 2}px`,
@@ -60,7 +64,7 @@ function WorkItemsSection({ workItems }) {
                   </div>
                 </div>
                 <div className={classNames("w-full text-center")}>
-                  <div className={classNames("py-12")}>
+                  <div className={classNames("py-6")}>
                     <Link href={`/work/${workItem.slug.current}`}>
                       <a>
                         <h2
