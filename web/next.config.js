@@ -150,6 +150,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/see",
+        destination: "/work",
+        permanent: true,
+      },
+      {
         source: "/sitemap.xml",
         destination: "/api/sitemap",
         permanent: true,
