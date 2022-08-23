@@ -34,6 +34,16 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/portfolio/childrens-miracle-network",
+        destination: "/case-studies/primary-childrens-hospital",
+        permanent: true,
+      },
+      {
+        source: "/portfolio/primary-childrens-hospital-environmental",
+        destination: "/case-studies/primary-childrens-hospital",
+        permanent: true,
+      },
+      {
         source: "/portfolio/intermountain-healthcare-connect-care",
         destination: "/work/intermountain-connect-care",
         permanent: true,
@@ -80,6 +90,11 @@ const nextConfig = {
       },
       {
         source: "/tag/advertising",
+        destination: "/work",
+        permanent: true,
+      },
+      {
+        source: "/tag/marketing",
         destination: "/work",
         permanent: true,
       },
