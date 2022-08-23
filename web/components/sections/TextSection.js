@@ -3,14 +3,7 @@ import React from "react";
 import Cta from "../Cta";
 import SimpleBlockContent from "../SimpleBlockContent";
 
-function TextSection({
-  heading,
-  text,
-  cta,
-  textAlign,
-  colors,
-  backgroundImage,
-}) {
+function TextSection({ heading, text, cta, textAlign, colors }) {
   return (
     <section
       className="bg-near-white"
@@ -34,8 +27,6 @@ TextSection.propTypes = {
   cta: PropTypes.object,
   textAlign: PropTypes.string,
   colors: PropTypes.string,
-  backgroundImage: PropTypes.object,
-  textColor: PropTypes.string,
 };
 
 export default TextSection;
