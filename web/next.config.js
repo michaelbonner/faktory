@@ -20,7 +20,7 @@ const nextConfig = {
       },
       {
         source: "/learn",
-        destination: "/about",
+        destination: "/who-we-are",
         permanent: true,
       },
       {
