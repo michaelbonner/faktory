@@ -160,6 +160,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "2019/05/31/ideas-that-scare-us",
+        destination: "/who-we-are",
+        permanent: true,
+      },
+      {
         source: "/sitemap.xml",
         destination: "/api/sitemap",
         permanent: true,
