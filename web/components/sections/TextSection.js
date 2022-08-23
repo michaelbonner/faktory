@@ -1,14 +1,15 @@
-import React from "react";
 import PropTypes from "prop-types";
-import SimpleBlockContent from "../SimpleBlockContent";
+import React from "react";
 import Cta from "../Cta";
+import SimpleBlockContent from "../SimpleBlockContent";
+
 function TextSection({ heading, text, cta, textAlign, colors }) {
   return (
     <section
       className="bg-near-white"
       style={{
-        "text-align": `${textAlign}`,
-        "background-color": `${colors}`,
+        textAlign: `${textAlign}`,
+        backgroundColor: `${colors}`,
       }}
     >
       <div className="max-w-7xl mx-auto px-4 py-12 lg:py-24 grid gap-8 items-center user-content">
@@ -26,8 +27,6 @@ TextSection.propTypes = {
   cta: PropTypes.object,
   textAlign: PropTypes.string,
   colors: PropTypes.string,
-  backgroundImage: PropTypes.object,
-  textColor: PropTypes.string,
 };
 
 export default TextSection;

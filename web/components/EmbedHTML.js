@@ -1,16 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function EmbedHTML({ node }) {
-  const { html } = node;
+function EmbedHTML({ value }) {
+  if (!value) return undefined;
+  const { html } = value;
   if (!html) {
     return undefined;
   }
-  return <div dangerouslySetInnerHTML={{ __html: html }} />;
+  return <div className="mx-8" dangerouslySetInnerHTML={{ __html: html }} />;
 }
 
 EmbedHTML.propTypes = {
-  node: PropTypes.shape({
+  value: PropTypes.shape({
     html: PropTypes.string,
   }),
 };

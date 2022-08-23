@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "./google-fonts.css";
+
 .user-content h1 {
   @apply text-3xl font-bold leading-normal mb-4 font-display;
   @apply lg:text-5xl;
@@ -45,6 +47,12 @@
 
 .user-content .p3 {
   @apply text-lg mb-2;
+}
+
+@media (max-width: 640px) {
+  .user-content .text-sm p {
+    @apply mb-0;
+  }
 }
 
 .standardButton {

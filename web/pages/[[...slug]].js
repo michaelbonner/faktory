@@ -90,7 +90,7 @@ export const getServerSideProps = async ({ params }) => {
       .then((res) => (res?.page ? { ...res.page, slug } : undefined));
   }
 
-  if (!data?._type === "page") {
+  if (!data?._type) {
     return {
       notFound: true,
     };
