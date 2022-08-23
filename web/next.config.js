@@ -155,6 +155,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/2020/01/15/do-more-than-be-where-your-audience-is",
+        destination: "/who-we-are",
+        permanent: true,
+      },
+      {
         source: "/sitemap.xml",
         destination: "/api/sitemap",
         permanent: true,
