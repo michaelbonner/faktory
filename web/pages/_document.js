@@ -14,7 +14,7 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang={this.props.lang || "en"}>
+      <Html lang={"en"}>
         <Head>
           <link
             rel="preconnect"
