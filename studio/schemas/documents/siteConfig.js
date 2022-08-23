@@ -26,14 +26,6 @@ export default {
       to: { type: 'page' }
     },
     {
-      title: 'Site language',
-      description: 'Should be a valid bcp47 language code like en, en-US, no or nb-NO',
-      name: 'lang',
-      type: 'string',
-      validation: Rule =>
-        Rule.custom(lang => (bcp47.parse(lang) ? true : 'Please use a valid bcp47 code'))
-    },
-    {
       title: 'Brand logo',
       description: 'Best choice is to use an SVG where the color are set with currentColor',
       name: 'logo',
