@@ -90,6 +90,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/portfolio/intermountain-healthcare-live-well",
+        destination: "/work/intermountain-connect-care",
+        permanent: true,
+      },
+      {
         source: "/portfolio/dominion-energy",
         destination: "/case-studies/dominion-energy-thermwise",
         permanent: true,
