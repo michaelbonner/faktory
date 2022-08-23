@@ -165,7 +165,7 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: "2019/05/31/ideas-that-scare-us",
+        source: "/2019/05/31/ideas-that-scare-us",
         destination: "/who-we-are",
         permanent: true,
       },
