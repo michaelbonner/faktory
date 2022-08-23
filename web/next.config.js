@@ -109,7 +109,7 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: "sitemap.xml",
+        source: "/sitemap.xml",
         destination: "/api/sitemap",
         permanent: true,
       },
