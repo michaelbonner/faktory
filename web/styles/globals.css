@@ -49,6 +49,12 @@
   @apply text-lg mb-2;
 }
 
+@media (max-width: 640px) {
+  .user-content .text-sm p {
+    @apply mb-0;
+  }
+}
+
 .standardButton {
   @apply block text-center;
   @apply lg:inline-block lg:px-20;
