@@ -25,13 +25,8 @@ function TextSection({
     <section
       className="bg-near-white"
       style={{
-        "text-align": `${textAlign}`,
-        "background-color": `${colors}`,
-        // backgroundImage:
-        //   typeof image === "undefined" ? "none" : `url(${image})`,
-        // backgroundRepeat: "no-repeat",
-        // backgroundSize: "cover",
-        // color: `${textColor}`,
+        textAlign: `${textAlign}`,
+        backgroundColor: `${colors}`,
       }}
     >
       <div className="max-w-7xl mx-auto px-4 py-12 lg:py-24 grid gap-8 items-center user-content">

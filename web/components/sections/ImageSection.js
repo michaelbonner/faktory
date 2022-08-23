@@ -35,7 +35,7 @@ function ImageSection({
         <div
           className="grid gap-y-4 user-content"
           style={{
-            "text-align": `${textAlign}`,
+            textAlign: `${textAlign}`,
           }}
         >
           <h3 className="text-gold">{heading}</h3>
