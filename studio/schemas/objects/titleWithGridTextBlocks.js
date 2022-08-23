@@ -25,6 +25,30 @@ export default {
       type: 'array',
       title: 'Column 3',
       of: [{ type: 'block' }]
+    },
+    {
+      name: 'topMargin',
+      type: 'string',
+      title: 'Top Spacing',
+      options: {
+        list: [
+          { title: 'Small', value: '1rem' },
+          { title: 'Medium', value: '2rem' },
+          { title: 'Large', value: '3rem' }
+        ]
+      }
+    },
+    {
+      name: 'bottomMargin',
+      type: 'string',
+      title: 'Bottom Spacing',
+      options: {
+        list: [
+          { title: 'Small', value: '1rem' },
+          { title: 'Medium', value: '2rem' },
+          { title: 'Large', value: '3rem' }
+        ]
+      }
     }
   ],
   preview: {
