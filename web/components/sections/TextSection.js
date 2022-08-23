@@ -1,15 +1,7 @@
-import React from "react";
 import PropTypes from "prop-types";
-import SimpleBlockContent from "../SimpleBlockContent";
+import React from "react";
 import Cta from "../Cta";
-// import imageUrlBuilder from "@sanity/image-url";
-// import client from "../../client";
-
-// const builder = imageUrlBuilder(client);
-
-// function urlFor(source) {
-//   return builder.image(source);
-// }
+import SimpleBlockContent from "../SimpleBlockContent";
 
 function TextSection({
   heading,
@@ -18,9 +10,7 @@ function TextSection({
   textAlign,
   colors,
   backgroundImage,
-  // textColor,
 }) {
-  // const image = urlFor(backgroundImage?.asset._ref);
   return (
     <section
       className="bg-near-white"
