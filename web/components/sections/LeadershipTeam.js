@@ -6,29 +6,40 @@ import SanityImage from "../SanityImage";
 function LeadershipTeam({ team }) {
   return (
     <>
-      <div className="bg-white py-12 text-center lg:py-24">
+      <div className={classNames("bg-white py-12 text-center", "lg:py-24")}>
         <h3 className="text-2xl font-bold mb-2 text-gold font-display uppercase">
           Faktory Leadership
         </h3>
         <div
           className={classNames(
-            "max-w-7xl mx-auto px-4 py-8 lg:py-16 text-dark-gray",
-            "grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16 lg:gap-y-24"
+            "grid grid-cols-2 gap-6 justify-center max-w-7xl mx-auto px-4 py-8 text-dark-gray",
+            "sm:gap-8",
+            "lg:py-16 lg:grid-cols-3 lg:gap-y-24",
+            "xl:grid-cols-4"
           )}
         >
           {team &&
             team.map((leader, index) => {
               return (
                 <div
-                  className="text-center grid gap-y-4 items-center justify-center"
+                  className={classNames(
+                    "text-center grid items-center justify-center",
+                    "sm:gap-y-4"
+                  )}
                   key={index}
                 >
-                  <div className="px-8 w-[240px]">
+                  <div
+                    className={classNames(
+                      "mx-auto w-[140px]",
+                      "sm:w-[180px] sm:px-8",
+                      "lg:w-[240px]"
+                    )}
+                  >
                     <SanityImage image={leader.image} />
                   </div>
-                  <div>
+                  <div className={classNames("text-xs px-2", "sm:text-base")}>
                     <p className="font-bold">{leader.name}</p>
-                    <p className="">{leader.title}</p>
+                    <p>{leader.title}</p>
                   </div>
                 </div>
               );
