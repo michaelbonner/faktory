@@ -162,12 +162,12 @@ const nextConfig = {
       {
         source: "/2020/01/15/do-more-than-be-where-your-audience-is",
         destination: "/who-we-are",
-        permanent: true,
+        permanent: false,
       },
       {
         source: "/2019/05/31/ideas-that-scare-us",
         destination: "/who-we-are",
-        permanent: true,
+        permanent: false,
       },
       {
         source: "/sitemap.xml",
