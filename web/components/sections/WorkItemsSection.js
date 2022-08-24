@@ -40,33 +40,33 @@ function WorkItemsSection({ workItems }) {
                     maxHeight: `${featureImageHeight / 2}px`,
                   }}
                 >
-                  <div
-                    className="relative aspect-w-16 aspect-h-9 group"
-                    ref={featureImage}
-                    style={{
-                      height: `${featureImageHeight}px`,
-                    }}
-                  >
-                    <div className="absolute inset-0">
-                      <SanityImage
-                        animate={false}
-                        objectFit="cover"
-                        image={workImage}
-                      />
-                    </div>
-                    <div className="absolute flex items-end justify-center p-12 inset-0 opacity-0 group-hover:opacity-100 bg-orange bg-opacity-70 transition-all duration-500">
-                      <Link href={`/work/${workItem.slug.current}`}>
+                  <Link href={`/work/${workItem.slug.current}`} passHref>
+                    <div
+                      className="relative aspect-w-16 aspect-h-9 group"
+                      ref={featureImage}
+                      style={{
+                        height: `${featureImageHeight}px`,
+                      }}
+                    >
+                      <div className="absolute inset-0">
+                        <SanityImage
+                          animate={false}
+                          objectFit="cover"
+                          image={workImage}
+                        />
+                      </div>
+                      <div className="absolute flex items-end justify-center p-12 inset-0 opacity-0 group-hover:opacity-100 group-hover:cursor-pointer bg-orange bg-opacity-70 transition-all duration-500">
                         <a className={classNames("whiteTransparentButton")}>
                           Learn More
                         </a>
-                      </Link>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 </div>
                 <div className={classNames("w-full text-center")}>
                   <div className={classNames("py-6")}>
-                    <Link href={`/work/${workItem.slug.current}`}>
-                      <a>
+                    <Link href={`/work/${workItem.slug.current}`} passHref>
+                      <div className="w-fit mx-auto hover:cursor-pointer">
                         <h2
                           className={classNames(
                             "font-display font-bold text-gold text-2xl",
@@ -83,7 +83,7 @@ function WorkItemsSection({ workItems }) {
                         >
                           {workItem.client}
                         </h4>
-                      </a>
+                      </div>
                     </Link>
                   </div>
                 </div>
