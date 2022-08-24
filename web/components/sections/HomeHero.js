@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import PropTypes from "prop-types";
 import React, { useEffect, useRef, useState } from "react";
+import { classNames } from "../../functions/classNames";
 import Cta from "../Cta";
 import SanityImage from "../SanityImage";
 import SimpleBlockContent from "../SimpleBlockContent";
@@ -38,7 +39,7 @@ function HomeHero({
           backgroundSize: "cover",
         }}
       >
-        <div className="max-w-7xl mx-auto px-4 py-24 lg:py-36 text-white grid lg:grid-cols-2 items-end">
+        <div className="max-w-7xl mx-auto px-8 2xl:px-0 py-24 lg:py-36 text-white grid lg:grid-cols-2 items-end">
           <h1 className="text-[20vw] lg:text-[160px] 2xl:text-[200px] leading-[0.8] font-bold font-serif">
             {headingLine1 && (
               <motion.div
@@ -111,7 +112,13 @@ function HomeHero({
                 priority={true}
               />
             </div>
-            <div className="uppercase font-display text-[40px] 2xl:text-[50px] lg:text-5xl leading-tight">
+            <div
+              className={classNames(
+                "uppercase font-display text-[40px] leading-tight",
+                "lg:translate-y-8",
+                "2xl:text-[40px] 2xl:translate-y-0"
+              )}
+            >
               <SimpleBlockContent blocks={tagline} />
             </div>
           </div>
