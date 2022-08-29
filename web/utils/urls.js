@@ -5,6 +5,9 @@ function removeDoubleSlashes(path) {
 
 // "contact/" => "/contact/"
 export function getPathFromSlug(slug) {
+  if (Array.isArray(slug)) {
+    return removeDoubleSlashes(`/${slug.join("/") || ""}`);
+  }
   return removeDoubleSlashes(`/${slug || ""}`);
 }
 
