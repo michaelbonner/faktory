@@ -3,7 +3,6 @@ import groq from "groq";
 import { NextSeo } from "next-seo";
 import PropTypes from "prop-types";
 import React from "react";
-
 import client from "../client";
 import Layout from "../components/Layout";
 import RenderSections from "../components/RenderSections";
@@ -145,7 +144,7 @@ const LandingPage = (props) => {
         title={title}
         titleTemplate={`%s | ${config.title}`}
         description={description}
-        canonical={config.url && `${config.url}/${slug}`}
+        canonical={config.url && `${config.url}/${slug}`.replace(/\/\//g, "/")}
         openGraph={{
           images: openGraphImages,
           type: "website",
