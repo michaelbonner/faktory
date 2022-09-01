@@ -21,7 +21,7 @@ function Layout(props) {
   const fullTitle = `${title} | Faktory Inc.`;
 
   return (
-    <div>
+    <div className="max-w-screen overflow-x-hidden">
       <Head>
         <title>{fullTitle}</title>
         <link
