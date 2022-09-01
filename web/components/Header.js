@@ -35,7 +35,12 @@ const Header = ({ title = "Missing title", navItems }) => {
           </Link>
         </Transition>
       </div>
-      <div className="absolute lg:hidden top-0 right-0 z-20">
+      <div
+        className={classNames(
+          `lg:hidden top-0 right-0 z-20`,
+          mobileNavOpen ? "fixed" : "absolute"
+        )}
+      >
         <button
           className="p-5"
           onClick={() => {
