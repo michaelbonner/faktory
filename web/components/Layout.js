@@ -44,7 +44,7 @@ function Layout(props) {
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
         <meta name="msapplication-TileColor" content="#da532c" />
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#746f4b" />
         <meta
           name="viewport"
           content="initial-scale=1.0, width=device-width, viewport-fit=cover"
