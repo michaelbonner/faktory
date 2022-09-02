@@ -1,10 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Head from "next/head";
-
 import { LogoJsonLd } from "next-seo";
-import Header from "./Header";
+import Head from "next/head";
+import PropTypes from "prop-types";
+import React from "react";
 import Footer from "./Footer";
+import Header from "./Header";
 
 function Layout(props) {
   const { config, children } = props;
