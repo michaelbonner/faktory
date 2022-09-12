@@ -94,7 +94,7 @@ const Header = ({ title = "Missing title", navItems }) => {
       >
         <nav
           className={classNames(
-            `bg-dark-gray bg-opacity-95 z-10 items-center justify-center text-center fixed inset-0 gap-6 font-medium text-light-gray font-display text-3xl uppercase transition-all duration-300 w-screen`,
+            `bg-dark-gray bg-opacity-95 z-10 items-center justify-center text-center fixed inset-0 gap-6 font-medium text-white font-display text-3xl uppercase transition-all duration-300 w-screen`,
             `lg:pt-0 lg:bg-transparent lg:relative lg:text-lg lg:flex lg:text-medium-gray lg:w-auto`,
             mobileNavOpen
               ? `top-0 flex flex-col h-full pt-8 opacity-100`
