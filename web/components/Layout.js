@@ -20,7 +20,7 @@ function Layout(props) {
   const fullTitle = `${title} | Faktory Inc.`;
 
   return (
-    <div className="max-w-screen overflow-x-hidden">
+    <div className="max-w-screen">
       <Head>
         <title>{fullTitle}</title>
         <link
@@ -50,7 +50,7 @@ function Layout(props) {
         />
       </Head>
       <Header title={title} navItems={mainNavigation} logo={logo} />
-      <main>{children}</main>
+      <main className="max-w-screen overflow-x-hidden">{children}</main>
       <Footer navItems={footerNavigation} text={footerText} />
       {logoUrl && url && <LogoJsonLd url={url} logo={logoUrl} />}
     </div>
