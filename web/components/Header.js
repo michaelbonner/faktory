@@ -43,6 +43,7 @@ const Header = ({ title = "Missing title", navItems }) => {
       >
         <button
           className="p-5"
+          aria-label="Toggle menu"
           onClick={() => {
             setMobileNavOpen(!mobileNavOpen);
           }}
