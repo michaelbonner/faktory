@@ -144,7 +144,12 @@ const LandingPage = (props) => {
         title={title}
         titleTemplate={`%s | ${config.title}`}
         description={description}
-        canonical={config.url && `${config.url}/${slug}`.replace(/\/\//g, "/")}
+        canonical={
+          config.url &&
+          `${config.url}/${slug}`
+            .replace(/\/\//g, "/")
+            .replace("https:/www", "https://www")
+        }
         openGraph={{
           images: openGraphImages,
           type: "website",
