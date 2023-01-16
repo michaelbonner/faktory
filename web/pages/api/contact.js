@@ -6,7 +6,9 @@ const turnstileEndpoint =
   "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 
 export default async function handler(request, response) {
-  const captchaResponseData = await validateCaptcha(request.body.token);
+  const captchaResponseData = await validateCaptcha(
+    request.body["cf-turnstile-response"]
+  );
 
   if (!captchaResponseData.success) {
     response.status(400).json({
