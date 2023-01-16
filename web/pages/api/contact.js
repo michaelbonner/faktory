@@ -28,8 +28,15 @@ export default async function handler(request, response) {
   }
 
   try {
-    const { email, first_name, job_title, last_name, phone, tell_us_more } =
-      request.body;
+    const {
+      emailTo,
+      email,
+      first_name,
+      job_title,
+      last_name,
+      phone,
+      tell_us_more,
+    } = request.body;
     await sendSesEmail(
       [
         {
@@ -38,10 +45,10 @@ export default async function handler(request, response) {
         },
       ],
       [
-        // {
-        //   name: "Contact Form Group",
-        //   address: "info@faktoryagency.com",
-        // },
+        {
+          name: "Faktory Contact",
+          address: emailTo,
+        },
         {
           name: "Michael Bonner",
           address: "mike@bootpackdigital.com",
@@ -71,7 +78,7 @@ Tell Us More:\n ${tell_us_more}`
   }
 
   return response.status(400).json({
-    success: false,
-    data: request.body,
+    success: true,
+    message: "Thank you for your submission!",
   });
 }

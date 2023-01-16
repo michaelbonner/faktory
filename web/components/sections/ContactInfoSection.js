@@ -24,7 +24,7 @@ const serializeForm = function (form) {
   return returnObject;
 };
 
-function ContactInfoSection({ contact }) {
+function ContactInfoSection({ contact, emailTo }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -90,6 +90,7 @@ function ContactInfoSection({ contact }) {
                   try {
                     const form = event.target;
                     const data = serializeForm(form);
+                    data.emailTo = emailTo;
 
                     const submitForm = await fetch("/api/contact", {
                       method: "POST",
@@ -99,11 +100,10 @@ function ContactInfoSection({ contact }) {
                       body: JSON.stringify(data),
                     });
                     const response = await submitForm.json();
-                    console.log("response", response);
 
                     if (response.success) {
                       alert("Thank you for your submission!");
-                      form.reset();
+                      setIsSubmitted(true);
                     } else {
                       alert(
                         "There was an error submitting your form. Please try again."
@@ -216,6 +216,7 @@ function ContactInfoSection({ contact }) {
 
 ContactInfoSection.propTypes = {
   contact: PropTypes.arrayOf(PropTypes.object),
+  emailTo: PropTypes.string,
 };
 
 export default ContactInfoSection;
