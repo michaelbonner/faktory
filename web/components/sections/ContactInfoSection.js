@@ -1,20 +1,15 @@
+import { Turnstile } from "@marsidev/react-turnstile";
 import PropTypes from "prop-types";
 import React, { useRef, useState } from "react";
 import { classNames } from "../../functions/classNames";
 import SimpleBlockContent from "../SimpleBlockContent";
-import { Turnstile } from "@marsidev/react-turnstile";
-import { useEffect } from "react";
-import { useMemo } from "react";
-import Image from "next/image";
 
 const classList = {
   fieldLabel: classNames("block font-medium"),
   textField: classNames(
-    "mt-1 block w-full",
-    "lg:text-base",
+    "mt-1 block w-full text-base",
     "border border-gray-300",
-    "focus:ring-indigo-500 focus:border-indigo-500",
-    "sm:text-sm"
+    "focus:ring-indigo-500 focus:border-indigo-500"
   ),
 };
 
@@ -41,24 +36,32 @@ function ContactInfoSection({ contact, emailTo }) {
           <div
             className={classNames(
               "grid grid-cols-1 gap-x-8 gap-y-8 items-start",
-              "lg:grid-cols-2"
+              "lg:grid-cols-2 lg:gap-x-16"
             )}
           >
             <div className={classNames("grid gap-8", "lg:gap-16")}>
-              {contact &&
-                contact.map((office, index) => {
-                  return (
-                    <div
-                      className={classNames("text-lg", "lg:text-2xl")}
-                      key={index}
-                    >
-                      <p className="font-bold">{office.office}</p>
-                      {office.info && (
-                        <SimpleBlockContent blocks={office.info} />
-                      )}
-                    </div>
-                  );
-                })}
+              <div
+                className={classNames(
+                  "grid gap-8",
+                  "md:grid-cols-2",
+                  "lg:gap-16 lg:grid-cols-1"
+                )}
+              >
+                {contact &&
+                  contact.map((office, index) => {
+                    return (
+                      <div
+                        className={classNames("text-lg", "lg:text-xl")}
+                        key={index}
+                      >
+                        <p className="font-bold">{office.office}</p>
+                        {office.info && (
+                          <SimpleBlockContent blocks={office.info} />
+                        )}
+                      </div>
+                    );
+                  })}
+              </div>
               <div
                 className={classNames("h-0.5 w-full mx-auto bg-dark-gray")}
               ></div>
