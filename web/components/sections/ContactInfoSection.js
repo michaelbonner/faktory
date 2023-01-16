@@ -97,7 +97,7 @@ function ContactInfoSection({ contact, emailTo }) {
               <form
                 className={classNames(
                   "grid grid-cols-1 gap-y-8 gap-x-4 transition-opacity",
-                  "lg:grid-cols-2",
+                  "md:grid-cols-2",
                   isSubmitting && "opacity-50"
                 )}
                 ref={formRef}
@@ -198,7 +198,7 @@ function ContactInfoSection({ contact, emailTo }) {
                     placeholder="Job Title"
                   />
                 </div>
-                <div className="lg:col-span-2">
+                <div className="md:col-span-2">
                   <label
                     className={classList.fieldLabel}
                     htmlFor="tell_us_more"
@@ -214,7 +214,7 @@ function ContactInfoSection({ contact, emailTo }) {
                   ></textarea>
                 </div>
 
-                <div className="lg:col-span-2 flex flex-wrap gap-4 justify-between items-end">
+                <div className="md:col-span-2 flex flex-wrap gap-4 justify-between items-end">
                   <Turnstile
                     options={{
                       theme: "light",
