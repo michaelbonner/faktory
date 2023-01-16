@@ -1,8 +1,11 @@
 import PropTypes from "prop-types";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { classNames } from "../../functions/classNames";
 import SimpleBlockContent from "../SimpleBlockContent";
 import { Turnstile } from "@marsidev/react-turnstile";
+import { useEffect } from "react";
+import { useMemo } from "react";
+import Image from "next/image";
 
 const classList = {
   fieldLabel: classNames("block font-medium"),
@@ -27,6 +30,7 @@ const serializeForm = function (form) {
 function ContactInfoSection({ contact, emailTo }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const formRef = useRef(null);
 
   return (
     <>
@@ -68,11 +72,25 @@ function ContactInfoSection({ contact, emailTo }) {
               </a>
             </div>
             {isSubmitted && (
-              <div>
-                <h2 className="text-2xl font-bold">Thank you!</h2>
-                <p className="mt-4">
-                  We have received your message and will be in touch shortly.
-                </p>
+              <div
+                className="my-12 grid items-stretch border-b border-gold"
+                style={{ height: `${formRef?.current?.offsetHeight}px` }}
+              >
+                <div>
+                  <h2 className="text-3xl font-bold text-gold">Thank you!</h2>
+                  <p className="mt-8 text-lg">
+                    We have received your message and will be in touch shortly.
+                  </p>
+                </div>
+                <div className="min-h-[200px] flex items-center grow justify-end">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    alt="Brand bars"
+                    height="30px"
+                    src="/images/brand-bars.svg"
+                    width="180px"
+                  />
+                </div>
               </div>
             )}
             {!isSubmitted && (
@@ -82,6 +100,7 @@ function ContactInfoSection({ contact, emailTo }) {
                   "lg:grid-cols-2",
                   isSubmitting && "opacity-50"
                 )}
+                ref={formRef}
                 onSubmit={async (event) => {
                   event.preventDefault();
 
@@ -102,7 +121,6 @@ function ContactInfoSection({ contact, emailTo }) {
                     const response = await submitForm.json();
 
                     if (response.success) {
-                      alert("Thank you for your submission!");
                       setIsSubmitted(true);
                     } else {
                       alert(
