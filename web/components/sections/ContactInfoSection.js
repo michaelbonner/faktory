@@ -35,7 +35,7 @@ function ContactInfoSection({ contact, emailTo }) {
         <div className={classNames("max-w-7xl mx-auto px-4 text-dark-gray")}>
           <div
             className={classNames(
-              "grid grid-cols-1 gap-x-8 gap-y-8 items-start",
+              "grid grid-cols-1 gap-x-8 gap-y-16 items-start",
               "lg:grid-cols-2 lg:gap-x-16"
             )}
           >
@@ -67,8 +67,8 @@ function ContactInfoSection({ contact, emailTo }) {
               ></div>
               <a
                 className={classNames(
-                  "text-xl font-medium",
-                  "lg:text-3xl",
+                  "text-lg font-medium",
+                  "lg:text-xl",
                   "hover:underline"
                 )}
                 href="mailto:info@faktorymail.com"
