@@ -124,18 +124,18 @@ const sendEmailWithSes = async ({
         },
       ],
       `New Faktory contact submission from ${first_name} ${last_name}`,
-      `<p><strong>Name</strong>: ${first_name} ${last_name}</p>
-      <p><strong>Phone</strong>: ${phone}</p>
-      <p><strong>Email</strong>: ${email}</p>
-      <p><strong>Job Title</strong>: ${job_title}</p>
+      `<p><strong>Name</strong>:<br />${first_name} ${last_name}</p>
+      <p><strong>Phone</strong>:<br />${phone}</p>
+      <p><strong>Email</strong>:<br />${email}</p>
+      <p><strong>Job Title</strong>:<br />${job_title}</p>
       <p><strong>Tell Us More</strong>:<br /> ${tell_us_more}</p>`.replaceAll(
         "\n",
         "<br />"
       ),
-      `Name: ${first_name} ${last_name}
-      Phone: ${phone}
-      Email: ${email}
-      Job Title: ${job_title}
+      `Name:\n ${first_name} ${last_name}\n
+      Phone:\n ${phone}\n
+      Email:\n ${email}\n
+      Job Title:\n ${job_title}\n
       Tell Us More:\n ${tell_us_more}`
     );
     return { success: true };
