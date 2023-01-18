@@ -21,6 +21,7 @@ export const sendSesEmail = async (
   subject,
   html,
   text,
+  replyTo,
   attachment
 ) => {
   const mailOptions = {
@@ -29,6 +30,7 @@ export const sendSesEmail = async (
     subject,
     html,
     text,
+    replyTo,
   };
 
   if (attachment) {

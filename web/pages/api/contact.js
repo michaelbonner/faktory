@@ -136,7 +136,8 @@ const sendEmailWithSes = async ({
       Phone:\n ${phone}\n
       Email:\n ${email}\n
       Job Title:\n ${job_title}\n
-      Tell Us More:\n ${tell_us_more}`
+      Tell Us More:\n ${tell_us_more}`,
+      email
     );
     return { success: true };
   } catch (error) {
