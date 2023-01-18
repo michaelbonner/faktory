@@ -114,10 +114,10 @@ const sendEmailWithSes = async ({
         },
       ],
       [
-        // {
-        //   name: "Faktory Contact",
-        //   address: emailTo,
-        // },
+        {
+          name: "Faktory Contact",
+          address: emailTo,
+        },
         {
           name: "Michael Bonner",
           address: "mike@bootpackdigital.com",
