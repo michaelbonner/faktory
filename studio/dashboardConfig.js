@@ -15,7 +15,7 @@ export default {
             value: 'https://github.com/michaelbonner/faktory',
             category: 'Code'
           },
-          { title: 'Frontend', value: 'https://faktory.vercel.app', category: 'apps' }
+          { title: 'Frontend', value: 'https://www.faktoryagency.com/', category: 'apps' }
         ]
       }
     },
