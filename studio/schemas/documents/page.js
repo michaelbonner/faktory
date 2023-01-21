@@ -32,7 +32,8 @@ export default {
         { type: 'leadershipTeam' },
         { type: 'contactInfoSection' },
         { type: 'workItemsSection' },
-        { type: 'caseStudiesSection' }
+        { type: 'caseStudiesSection' },
+        { type: 'prSection' },
       ]
     },
     {

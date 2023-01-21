@@ -23,6 +23,8 @@ content[] {
   workItems[]->
   ,
   caseStudies[]->
+  ,
+  prItems[]->
 }`;
 
 /**
@@ -68,6 +70,18 @@ export const getServerSideProps = async ({ params }) => {
       .fetch(
         // Get the route document with one of the possible slugs for the given requested path
         groq`*[_type == "caseStudy" && slug.current == '${params.slug[1]}'][0]{
+            ${pageFragment}
+        }`
+      )
+      .then((res) => {
+        return res?.content ? { ...res, slug } : undefined;
+      });
+  } else if (params.slug.length > 1 && params.slug[0] === "news") {
+    // prItem item route
+    data = await client
+      .fetch(
+        // Get the route document with one of the possible slugs for the given requested path
+        groq`*[_type == "prItem" && slug.current == '${params.slug[1]}'][0]{
             ${pageFragment}
         }`
       )
