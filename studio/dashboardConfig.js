@@ -6,24 +6,24 @@ export default {
       options: {
         __experimental_before: [
           {
-            name: 'vercel'
-          }
+            name: 'vercel',
+          },
         ],
         data: [
           {
             title: 'GitHub repo',
             value: 'https://github.com/michaelbonner/faktory',
-            category: 'Code'
+            category: 'Code',
           },
-          { title: 'Frontend', value: 'https://faktory.vercel.app', category: 'apps' }
-        ]
-      }
+          { title: 'Frontend', value: 'https://www.faktoryagency.com/', category: 'apps' },
+        ],
+      },
     },
     {
       name: 'document-list',
       options: { title: 'Recently edited', order: '_updatedAt desc', limit: 10, types: ['page'] },
-      layout: { width: 'medium' }
+      layout: { width: 'medium' },
     },
-    { name: 'project-users', layout: { height: 'auto' } }
-  ]
+    { name: 'project-users', layout: { height: 'auto' } },
+  ],
 }
