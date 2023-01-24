@@ -3,7 +3,7 @@ import client from "../../client";
 import { slugToAbsUrl } from "../../utils/urls";
 
 export default async function handler(req, res) {
-  const { allRoutesSlugs, baseUrl, workItems, caseStudies } =
+  const { allRoutesSlugs, baseUrl, workItems, caseStudies, prItems } =
     await client.fetch(groq`{
     // Get the slug of all routes that should be in the sitemap
     "allRoutesSlugs": *[
@@ -25,6 +25,11 @@ export default async function handler(req, res) {
       _type == "caseStudy" &&
       !(_id in path("drafts.**"))
     ].slug.current,
+
+    "prItems": *[
+      _type == "prItem" &&
+      !(_id in path("drafts.**"))
+    ].slug.current,
   }`);
 
   const allSlugs = Array.from(
@@ -33,6 +38,7 @@ export default async function handler(req, res) {
         ...allRoutesSlugs,
         ...workItems.map((slug) => `/work/${slug}`),
         ...caseStudies.map((slug) => `/case-studies/${slug}`),
+        ...prItems.map((slug) => `/news/${slug}`),
       ].map((slug) => {
         return slugToAbsUrl(slug, baseUrl);
       })
