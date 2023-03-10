@@ -4,6 +4,7 @@ import React, { useRef, useState } from "react";
 import { classNames } from "../../functions/classNames";
 import SimpleBlockContent from "../SimpleBlockContent";
 import SanityImage from "../SanityImage";
+import Link from "next/link";
 
 const classList = {
   fieldLabel: classNames("block font-medium"),
@@ -67,9 +68,12 @@ function GatedDocumentForm({ title, description, image, buttonText, emailTo }) {
               >
                 <div>
                   <h2 className="text-3xl font-bold text-gold">Thank you!</h2>
-                  <p className="mt-8 text-lg">
+                  <p className="my-8 text-lg">
                     We have received your message and will be in touch shortly.
                   </p>
+                  <Link href="/">
+                    <a className="standardButton">Return to homepage</a>
+                  </Link>
                 </div>
                 <div className="min-h-[200px] flex items-center grow justify-end">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
