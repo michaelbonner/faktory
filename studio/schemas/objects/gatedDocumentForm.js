@@ -17,14 +17,19 @@ export default {
     {
       title: 'Image',
       name: 'image',
-      type: 'image',
+      type: 'figure',
       options: {
         hotspot: true,
       },
     },
     {
-      title: 'Button Text',
-      name: 'buttonText',
+      title: 'Submit Button Text',
+      name: 'submitButtonText',
+      type: 'string',
+    },
+    {
+      title: 'Return Home Button Text',
+      name: 'returnHomeButtonText',
       type: 'string',
     },
     {

@@ -24,7 +24,14 @@ const serializeForm = function (form) {
   return returnObject;
 };
 
-function GatedDocumentForm({ title, description, image, buttonText, emailTo }) {
+function GatedDocumentForm({
+  description,
+  emailTo,
+  image,
+  returnHomeButtonText,
+  submitButtonText,
+  title,
+}) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -72,7 +79,7 @@ function GatedDocumentForm({ title, description, image, buttonText, emailTo }) {
                     We have received your message and will be in touch shortly.
                   </p>
                   <Link href="/">
-                    <a className="standardButton">Return to homepage</a>
+                    <a className="standardButton">{returnHomeButtonText}</a>
                   </Link>
                 </div>
                 <div className="min-h-[200px] flex items-center grow justify-end">
@@ -239,7 +246,7 @@ function GatedDocumentForm({ title, description, image, buttonText, emailTo }) {
                     }}
                     siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
                   />
-                  <button className="standardButton">{buttonText}</button>
+                  <button className="standardButton">{submitButtonText}</button>
                 </div>
               </form>
             )}
@@ -251,11 +258,16 @@ function GatedDocumentForm({ title, description, image, buttonText, emailTo }) {
 }
 
 GatedDocumentForm.propTypes = {
-  title: PropTypes.string,
   description: PropTypes.array,
-  image: PropTypes.object,
-  buttonText: PropTypes.string,
   emailTo: PropTypes.string,
+  image: PropTypes.shape({
+    asset: PropTypes.shape({
+      _ref: PropTypes.string,
+    }),
+  }),
+  returnHomeButtonText: PropTypes.string,
+  submitButtonText: PropTypes.string,
+  title: PropTypes.string,
 };
 
 export default GatedDocumentForm;
