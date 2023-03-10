@@ -196,15 +196,19 @@ function GatedDocumentForm({ title, description, image, buttonText, emailTo }) {
                     />
                   </div>
                   <div className="md:col-span-4">
-                    <label className={classList.fieldLabel} htmlFor="job_title">
+                    <label
+                      className={classList.fieldLabel}
+                      htmlFor="organization"
+                    >
                       Organization
                     </label>
                     <input
                       className={classList.textField}
                       type="text"
-                      name="job_title"
-                      id="job_title"
-                      placeholder="Job Title"
+                      name="organization"
+                      id="organization"
+                      placeholder="Organization"
+                      required
                     />
                   </div>
                   <div className="md:col-span-4">
