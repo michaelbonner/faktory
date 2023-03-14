@@ -8,6 +8,9 @@ mailchimpClient.setConfig({
   server: process.env.NEXT_PUBLIC_MAILCHIMP_SERVER_PREFIX,
 });
 
+const gatedDocumentListId =
+  process.env.NEXT_PUBLIC_MAILCHIMP_GATED_DOCUMENT_LIST_ID;
+
 const turnstileEndpoint =
   "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 
@@ -106,15 +109,18 @@ const validateCaptcha = async (token) => {
 
 const addToMailchimpList = async (email) => {
   try {
-    // const response = await mailchimpClient.lists.addListMember("list_id", {
-    //   email_address: email,
-    //   status: "subscribed",
-    // });
-    // console.log(response);
+    const response = await mailchimpClient.lists.addListMember(
+      gatedDocumentListId,
+      {
+        email_address: email,
+        status: "subscribed",
+      }
+    );
+    console.log(response);
 
     // This was for testing the connection to Mailchimp
-    const response = await mailchimpClient.root.getRoot();
-    console.log(response);
+    //   const response = await mailchimpClient.root.getRoot();
+    //   console.log(response);
     return { success: true };
   } catch (error) {
     console.error("mailchimp error", error);
