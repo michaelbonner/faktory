@@ -33,7 +33,7 @@ export default async function handler(request, response) {
     first_name,
     job_title,
     last_name,
-    organization = "",
+    organization,
     phone,
     tell_us_more,
   } = request.body;
@@ -53,21 +53,34 @@ export default async function handler(request, response) {
   };
 
   // save in db
-  // const saveToDynamoDb = await saveContactToDynamoDb(contact);
-  // if (!saveToDynamoDb.success) {
-  //   return response.status(500).json({
-  //     success: false,
-  //     message: "Error saving contact to database",
-  //   });
-  // }
-
-  // send email
-  const sendEmail = await sendEmailWithSes(contact);
-  if (!sendEmail.success) {
+  const saveToDynamoDb = await saveContactToDynamoDb(contact);
+  if (!saveToDynamoDb.success) {
     return response.status(500).json({
       success: false,
-      message: "Error sending email",
+      message: "Error saving contact to database",
     });
+  }
+
+  // send email
+  if (!organization) {
+    const sendEmail = await sendEmailWithSes(contact);
+    if (!sendEmail.success) {
+      return response.status(500).json({
+        success: false,
+        message: "Error sending email",
+      });
+    }
+  }
+
+  // add to mailchimp
+  if (organization) {
+    const addToMailchimp = await addToMailchimpList(contact);
+    if (!addToMailchimp.success) {
+      return response.status(500).json({
+        success: false,
+        message: "Error adding contact to mailchimp",
+      });
+    }
   }
 
   // return success
@@ -94,33 +107,37 @@ const validateCaptcha = async (token) => {
   return await captchaResponse.json();
 };
 
-// const saveContactToDynamoDb = async (contact) => {
-//   try {
-//     await dynamoDb.put({
-//       Item: contact,
-//     });
-
-//     return { success: true };
-//   } catch (error) {
-//     console.error("dynamo error", error);
-//     return { success: false };
-//   }
-// };
-
-const addToMailchimpList = async (email) => {
+const saveContactToDynamoDb = async (contact) => {
   try {
-    const response = await mailchimpClient.lists.addListMember(
-      gatedDocumentListId,
-      {
-        email_address: email,
-        status: "subscribed",
-      }
-    );
-    console.log(response);
+    await dynamoDb.put({
+      Item: contact,
+    });
 
-    // This was for testing the connection to Mailchimp
-    //   const response = await mailchimpClient.root.getRoot();
-    //   console.log(response);
+    return { success: true };
+  } catch (error) {
+    console.error("dynamo error", error);
+    return { success: false };
+  }
+};
+
+const addToMailchimpList = async ({
+  email,
+  first_name,
+  last_name,
+  phone,
+  organization,
+}) => {
+  try {
+    await mailchimpClient.lists.addListMember(gatedDocumentListId, {
+      email_address: email,
+      status: "subscribed",
+      merge_fields: {
+        FNAME: first_name,
+        LNAME: last_name,
+        PHONE: phone,
+        COMPANY: organization,
+      },
+    });
     return { success: true };
   } catch (error) {
     console.error("mailchimp error", error);
@@ -134,92 +151,46 @@ const sendEmailWithSes = async ({
   first_name,
   last_name,
   job_title,
-  organization,
   phone,
   tell_us_more,
 }) => {
-  if (organization === "") {
-    try {
-      await sendSesEmail(
-        [
-          {
-            name: "Faktory Contact Form",
-            address: `noreply@faktoryagency.com`,
-          },
-        ],
-        [
-          {
-            name: "Faktory Contact",
-            address: emailTo,
-          },
-          {
-            name: "Michael Bonner",
-            address: "mike@bootpackdigital.com",
-          },
-        ],
-        `New Faktory contact submission from ${first_name} ${last_name}`,
-        `<p><strong>Name</strong>:<br />${first_name} ${last_name}</p>
+  try {
+    await sendSesEmail(
+      [
+        {
+          name: "Faktory Contact Form",
+          address: `noreply@faktoryagency.com`,
+        },
+      ],
+      [
+        {
+          name: "Faktory Contact",
+          address: emailTo,
+        },
+        {
+          name: "Michael Bonner",
+          address: "mike@bootpackdigital.com",
+        },
+      ],
+      `New Faktory contact submission from ${first_name} ${last_name}`,
+      `<p><strong>Name</strong>:<br />${first_name} ${last_name}</p>
         <p><strong>Phone</strong>:<br />${phone}</p>
         <p><strong>Email</strong>:<br />${email}</p>
         <p><strong>Job Title</strong>:<br />${job_title}</p>
         <p><strong>Tell Us More</strong>:<br /> ${tell_us_more}</p>`.replaceAll(
-          "\n",
-          "<br />"
-        ),
-        `Name:\n ${first_name} ${last_name}\n
+        "\n",
+        "<br />"
+      ),
+      `Name:\n ${first_name} ${last_name}\n
           Phone:\n ${phone}\n
           Email:\n ${email}\n
           Job Title:\n ${job_title}\n
           Tell Us More:\n ${tell_us_more}`,
-        email
-      );
-      return { success: true };
-    } catch (error) {
-      console.error("ses error", error);
-      return { success: false };
-    }
-  } else {
-    try {
-      // await sendSesEmail(
-      //   [
-      //     {
-      //       name: "Faktory Contact Form",
-      //       address: `noreply@faktoryagency.com`,
-      //     },
-      //   ],
-      //   [
-      //     {
-      //       name: "Faktory Contact",
-      //       address: emailTo,
-      //     },
-      //     {
-      //       name: "Colton Bonner",
-      //       address: "colton@bootpackdigital.com",
-      //     },
-      //   ],
-      //   `New Faktory gated document submission from ${first_name} ${last_name}`,
-      //   `<p><strong>Name</strong>:<br />${first_name} ${last_name}</p>
-      //       <p><strong>Phone</strong>:<br />${phone}</p>
-      //       <p><strong>Email</strong>:<br />${email}</p>
-      //       <p><strong>Job Title</strong>:<br />${job_title}</p>
-      //       <p><strong>Organization</strong>:<br />${organization}</p>
-      //       <p><strong>Tell Us More</strong>:<br /> ${tell_us_more}</p>`.replaceAll(
-      //     "\n",
-      //     "<br />"
-      //   ),
-      //   `Name:\n ${first_name} ${last_name}\n
-      //         Phone:\n ${phone}\n
-      //         Email:\n ${email}\n
-      //         Job Title:\n ${job_title}\n
-      //         Organization:\n ${organization}\n
-      //         Tell Us More:\n ${tell_us_more}`,
-      //   email
-      // );
-      await addToMailchimpList(email);
-      return { success: true };
-    } catch (error) {
-      console.error("ses error", error);
-      return { success: false };
-    }
+      email
+    );
+    return { success: true };
+  } catch (error) {
+    console.error("ses error", error);
+    return { success: false };
   }
 };
