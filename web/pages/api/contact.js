@@ -52,24 +52,24 @@ export default async function handler(request, response) {
   };
 
   // save in db
-  // const saveToDynamoDb = await saveContactToDynamoDb(contact);
-  // if (!saveToDynamoDb.success) {
-  //   return response.status(500).json({
-  //     success: false,
-  //     message: "Error saving contact to database",
-  //   });
-  // }
+  const saveToDynamoDb = await saveContactToDynamoDb(contact);
+  if (!saveToDynamoDb.success) {
+    return response.status(500).json({
+      success: false,
+      message: "Error saving contact to database",
+    });
+  }
 
   // send email
-  // if (!organization) {
-  //   const sendEmail = await sendEmailWithSes(contact);
-  //   if (!sendEmail.success) {
-  //     return response.status(500).json({
-  //       success: false,
-  //       message: "Error sending email",
-  //     });
-  //   }
-  // }
+  if (!organization) {
+    const sendEmail = await sendEmailWithSes(contact);
+    if (!sendEmail.success) {
+      return response.status(500).json({
+        success: false,
+        message: "Error sending email",
+      });
+    }
+  }
 
   // add to mailchimp
   if (organization) {
@@ -106,18 +106,18 @@ const validateCaptcha = async (token) => {
   return await captchaResponse.json();
 };
 
-// const saveContactToDynamoDb = async (contact) => {
-//   try {
-//     await dynamoDb.put({
-//       Item: contact,
-//     });
+const saveContactToDynamoDb = async (contact) => {
+  try {
+    await dynamoDb.put({
+      Item: contact,
+    });
 
-//     return { success: true };
-//   } catch (error) {
-//     console.error("dynamo error", error);
-//     return { success: false };
-//   }
-// };
+    return { success: true };
+  } catch (error) {
+    console.error("dynamo error", error);
+    return { success: false };
+  }
+};
 
 const addToMailchimpList = async ({
   email,
@@ -144,52 +144,52 @@ const addToMailchimpList = async ({
   }
 };
 
-// const sendEmailWithSes = async ({
-//   emailTo,
-//   email,
-//   first_name,
-//   last_name,
-//   job_title,
-//   phone,
-//   tell_us_more,
-// }) => {
-//   try {
-//     await sendSesEmail(
-//       [
-//         {
-//           name: "Faktory Contact Form",
-//           address: `noreply@faktoryagency.com`,
-//         },
-//       ],
-//       [
-//         {
-//           name: "Faktory Contact",
-//           address: emailTo,
-//         },
-//         {
-//           name: "Michael Bonner",
-//           address: "mike@bootpackdigital.com",
-//         },
-//       ],
-//       `New Faktory contact submission from ${first_name} ${last_name}`,
-//       `<p><strong>Name</strong>:<br />${first_name} ${last_name}</p>
-//         <p><strong>Phone</strong>:<br />${phone}</p>
-//         <p><strong>Email</strong>:<br />${email}</p>
-//         <p><strong>Job Title</strong>:<br />${job_title}</p>
-//         <p><strong>Tell Us More</strong>:<br /> ${tell_us_more}</p>`.replaceAll(
-//         "\n",
-//         "<br />"
-//       ),
-//       `Name:\n ${first_name} ${last_name}\n
-//           Phone:\n ${phone}\n
-//           Email:\n ${email}\n
-//           Job Title:\n ${job_title}\n
-//           Tell Us More:\n ${tell_us_more}`,
-//       email
-//     );
-//     return { success: true };
-//   } catch (error) {
-//     console.error("ses error", error);
-//     return { success: false };
-//   }
-// };
+const sendEmailWithSes = async ({
+  emailTo,
+  email,
+  first_name,
+  last_name,
+  job_title,
+  phone,
+  tell_us_more,
+}) => {
+  try {
+    await sendSesEmail(
+      [
+        {
+          name: "Faktory Contact Form",
+          address: `noreply@faktoryagency.com`,
+        },
+      ],
+      [
+        {
+          name: "Faktory Contact",
+          address: emailTo,
+        },
+        {
+          name: "Michael Bonner",
+          address: "mike@bootpackdigital.com",
+        },
+      ],
+      `New Faktory contact submission from ${first_name} ${last_name}`,
+      `<p><strong>Name</strong>:<br />${first_name} ${last_name}</p>
+        <p><strong>Phone</strong>:<br />${phone}</p>
+        <p><strong>Email</strong>:<br />${email}</p>
+        <p><strong>Job Title</strong>:<br />${job_title}</p>
+        <p><strong>Tell Us More</strong>:<br /> ${tell_us_more}</p>`.replaceAll(
+        "\n",
+        "<br />"
+      ),
+      `Name:\n ${first_name} ${last_name}\n
+          Phone:\n ${phone}\n
+          Email:\n ${email}\n
+          Job Title:\n ${job_title}\n
+          Tell Us More:\n ${tell_us_more}`,
+      email
+    );
+    return { success: true };
+  } catch (error) {
+    console.error("ses error", error);
+    return { success: false };
+  }
+};
