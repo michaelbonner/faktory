@@ -100,7 +100,7 @@ function GatedDocumentForm({
                 onSubmit={async (event) => {
                   event.preventDefault();
 
-                  // setIsSubmitting(true);
+                  setIsSubmitting(true);
 
                   try {
                     const form = event.target;
