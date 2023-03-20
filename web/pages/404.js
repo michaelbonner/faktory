@@ -13,7 +13,7 @@ function Custom404({ config }) {
       <div
         className="bg-dark-gray text-center bg-cover no-repeat"
         style={{
-          backgroundImage: `url("/images/texture-white.svg")`,
+          backgroundImage: `url("/images/texture-white.png")`,
         }}
       >
         <div className="max-w-7xl mx-auto px-4 py-24 lg:py-36 text-white grid gap-4 items-end">

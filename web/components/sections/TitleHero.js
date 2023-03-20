@@ -9,7 +9,7 @@ function Hero({ headingLine1, headingLine2, body }) {
       <div
         className="bg-almost-white"
         style={{
-          backgroundImage: `url("/images/texture.svg")`,
+          backgroundImage: `url("/images/texture.png")`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
