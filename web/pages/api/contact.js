@@ -1,7 +1,7 @@
 import { sendSesEmail } from "../../lib/sendSesEmail";
 import { v4 as uuidV4 } from "uuid";
 import dynamoDb from "../../lib/dynamoDb";
-const mailchimpClient = require("@mailchimp/mailchimp_marketing");
+import mailchimpClient from "@mailchimp/mailchimp_marketing";
 
 mailchimpClient.setConfig({
   apiKey: process.env.NEXT_PUBLIC_MAILCHIMP_API_KEY,
