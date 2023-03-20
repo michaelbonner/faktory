@@ -6,7 +6,7 @@ function QuoteSection({ quote, author }) {
     <div
       className="bg-dark-gray"
       style={{
-        backgroundImage: `url("/images/texture-white.svg")`,
+        backgroundImage: `url("/images/texture-white.png")`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
       }}
