@@ -51,6 +51,14 @@ export default async function handler(request, response) {
     createdAt: Date.now(),
   };
 
+  const mailchimpAudienceContact = {
+    email,
+    first_name,
+    last_name,
+    phone,
+    organization,
+  };
+
   // save in db
   const saveToDynamoDb = await saveContactToDynamoDb(contact);
   if (!saveToDynamoDb.success) {
@@ -73,7 +81,7 @@ export default async function handler(request, response) {
 
   // add to mailchimp
   if (organization) {
-    const addToMailchimp = await addToMailchimpList(contact);
+    const addToMailchimp = await addToMailchimpList(mailchimpAudienceContact);
     if (!addToMailchimp.success) {
       return response.status(500).json({
         success: false,
