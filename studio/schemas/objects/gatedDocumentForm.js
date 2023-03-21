@@ -58,5 +58,10 @@ export default {
           return true
         }),
     },
+    {
+      name: 'mailchimpListId',
+      type: 'string',
+      title: 'Mailchimp Audience List ID',
+    },
   ],
 }

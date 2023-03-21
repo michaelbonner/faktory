@@ -31,6 +31,7 @@ function GatedDocumentForm({
   returnHomeButtonText,
   submitButtonText,
   title,
+  mailchimpListId,
 }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -106,6 +107,7 @@ function GatedDocumentForm({
                     const form = event.target;
                     const data = serializeForm(form);
                     data.emailTo = emailTo;
+                    data.mailchimpListId = mailchimpListId;
 
                     const submitForm = await fetch("/api/contact", {
                       method: "POST",
@@ -115,6 +117,7 @@ function GatedDocumentForm({
                       body: JSON.stringify(data),
                     });
                     const response = await submitForm.json();
+                    const error = JSON.parse(response.error.response.text);
 
                     if (response.success) {
                       setIsSubmitted(true);
@@ -123,7 +126,7 @@ function GatedDocumentForm({
                       });
                     } else {
                       alert(
-                        "There was an error submitting your form. Please try again."
+                        `There was a problem submitting the form. Error: ${error.title}`
                       );
                     }
 
@@ -268,6 +271,7 @@ GatedDocumentForm.propTypes = {
   returnHomeButtonText: PropTypes.string,
   submitButtonText: PropTypes.string,
   title: PropTypes.string,
+  mailchimpListId: PropTypes.string,
 };
 
 export default GatedDocumentForm;

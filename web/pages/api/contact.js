@@ -8,9 +8,6 @@ mailchimpClient.setConfig({
   server: process.env.NEXT_PUBLIC_MAILCHIMP_SERVER_PREFIX,
 });
 
-const gatedDocumentListId =
-  process.env.NEXT_PUBLIC_MAILCHIMP_GATED_DOCUMENT_LIST_ID;
-
 const turnstileEndpoint =
   "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 
@@ -36,6 +33,7 @@ export default async function handler(request, response) {
     organization,
     phone,
     tell_us_more,
+    mailchimpListId,
   } = request.body;
 
   const contactId = uuidV4();
@@ -57,6 +55,7 @@ export default async function handler(request, response) {
     last_name,
     phone,
     organization,
+    mailchimpListId,
   };
 
   // save in db
@@ -69,7 +68,7 @@ export default async function handler(request, response) {
   }
 
   // send email
-  if (!organization) {
+  if (!mailchimpListId) {
     const sendEmail = await sendEmailWithSes(contact);
     if (!sendEmail.success) {
       return response.status(500).json({
@@ -80,12 +79,13 @@ export default async function handler(request, response) {
   }
 
   // add to mailchimp
-  if (organization) {
+  if (mailchimpListId) {
     const addToMailchimp = await addToMailchimpList(mailchimpAudienceContact);
     if (!addToMailchimp.success) {
       return response.status(500).json({
         success: false,
-        message: "Error adding contact to mailchimp",
+        message: "Error adding contact to mailchimp.",
+        error: addToMailchimp.error,
       });
     }
   }
@@ -133,9 +133,10 @@ const addToMailchimpList = async ({
   last_name,
   phone,
   organization,
+  mailchimpListId,
 }) => {
   try {
-    await mailchimpClient.lists.addListMember(gatedDocumentListId, {
+    await mailchimpClient.lists.addListMember(mailchimpListId, {
       email_address: email,
       status: "subscribed",
       merge_fields: {
@@ -148,7 +149,7 @@ const addToMailchimpList = async ({
     return { success: true };
   } catch (error) {
     console.error("mailchimp error", error);
-    return { success: false };
+    return { success: false, error: error };
   }
 };
 
