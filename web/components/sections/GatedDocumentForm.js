@@ -5,6 +5,7 @@ import { classNames } from "../../functions/classNames";
 import SimpleBlockContent from "../SimpleBlockContent";
 import SanityImage from "../SanityImage";
 import Link from "next/link";
+import { serializeForm } from "../../functions/serializeForm";
 
 const classList = {
   fieldLabel: classNames("block font-medium"),
@@ -13,15 +14,6 @@ const classList = {
     "border border-gray-300",
     "focus:ring-indigo-500 focus:border-indigo-500"
   ),
-};
-
-const serializeForm = function (form) {
-  const returnObject = {};
-  const formData = new FormData(form);
-  for (let key of formData.keys()) {
-    returnObject[key] = formData.get(key);
-  }
-  return returnObject;
 };
 
 function GatedDocumentForm({
