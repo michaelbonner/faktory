@@ -9,3 +9,4 @@ export { default as TitleWithGridTextBlocks } from "./TitleWithGridTextBlocks";
 export { default as ContactInfoSection } from "./ContactInfoSection";
 export { default as WorkItemsSection } from "./WorkItemsSection";
 export { default as CaseStudiesSection } from "./CaseStudiesSection";
+export { default as GatedDocumentForm } from "./GatedDocumentForm";

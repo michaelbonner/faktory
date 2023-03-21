@@ -21,6 +21,7 @@ import portableText from './objects/portableText'
 import simplePortableText from './objects/simplePortableText'
 import person from './objects/person'
 import office from './objects/office'
+import gatedDocumentForm from './objects/gatedDocumentForm'
 
 // Landing page sections
 import homeHero from './objects/homeHero'
@@ -65,6 +66,7 @@ export default createSchema({
     office,
     workItemsSection,
     caseStudy,
-    caseStudiesSection
-  ])
+    caseStudiesSection,
+    gatedDocumentForm,
+  ]),
 })

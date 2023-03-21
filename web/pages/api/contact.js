@@ -1,6 +1,12 @@
 import { sendSesEmail } from "../../lib/sendSesEmail";
 import { v4 as uuidV4 } from "uuid";
 import dynamoDb from "../../lib/dynamoDb";
+import mailchimpClient from "@mailchimp/mailchimp_marketing";
+
+mailchimpClient.setConfig({
+  apiKey: process.env.NEXT_PUBLIC_MAILCHIMP_API_KEY,
+  server: process.env.NEXT_PUBLIC_MAILCHIMP_SERVER_PREFIX,
+});
 
 const turnstileEndpoint =
   "https://challenges.cloudflare.com/turnstile/v0/siteverify";
@@ -24,8 +30,10 @@ export default async function handler(request, response) {
     first_name,
     job_title,
     last_name,
+    organization,
     phone,
     tell_us_more,
+    mailchimpListId,
   } = request.body;
 
   const contactId = uuidV4();
@@ -41,6 +49,15 @@ export default async function handler(request, response) {
     createdAt: Date.now(),
   };
 
+  const mailchimpAudienceContact = {
+    email,
+    first_name,
+    last_name,
+    phone,
+    organization,
+    mailchimpListId,
+  };
+
   // save in db
   const saveToDynamoDb = await saveContactToDynamoDb(contact);
   if (!saveToDynamoDb.success) {
@@ -51,12 +68,26 @@ export default async function handler(request, response) {
   }
 
   // send email
-  const sendEmail = await sendEmailWithSes(contact);
-  if (!sendEmail.success) {
-    return response.status(500).json({
-      success: false,
-      message: "Error sending email",
-    });
+  if (!mailchimpListId) {
+    const sendEmail = await sendEmailWithSes(contact);
+    if (!sendEmail.success) {
+      return response.status(500).json({
+        success: false,
+        message: "Error sending email",
+      });
+    }
+  }
+
+  // add to mailchimp
+  if (mailchimpListId) {
+    const addToMailchimp = await addToMailchimpList(mailchimpAudienceContact);
+    if (!addToMailchimp.success) {
+      return response.status(500).json({
+        success: false,
+        message: "Error adding contact to mailchimp.",
+        error: addToMailchimp.error,
+      });
+    }
   }
 
   // return success
@@ -96,6 +127,32 @@ const saveContactToDynamoDb = async (contact) => {
   }
 };
 
+const addToMailchimpList = async ({
+  email,
+  first_name,
+  last_name,
+  phone,
+  organization,
+  mailchimpListId,
+}) => {
+  try {
+    await mailchimpClient.lists.addListMember(mailchimpListId, {
+      email_address: email,
+      status: "subscribed",
+      merge_fields: {
+        FNAME: first_name,
+        LNAME: last_name,
+        PHONE: phone,
+        COMPANY: organization,
+      },
+    });
+    return { success: true };
+  } catch (error) {
+    console.error("mailchimp error", error);
+    return { success: false, error: error };
+  }
+};
+
 const sendEmailWithSes = async ({
   emailTo,
   email,
@@ -125,18 +182,18 @@ const sendEmailWithSes = async ({
       ],
       `New Faktory contact submission from ${first_name} ${last_name}`,
       `<p><strong>Name</strong>:<br />${first_name} ${last_name}</p>
-      <p><strong>Phone</strong>:<br />${phone}</p>
-      <p><strong>Email</strong>:<br />${email}</p>
-      <p><strong>Job Title</strong>:<br />${job_title}</p>
-      <p><strong>Tell Us More</strong>:<br /> ${tell_us_more}</p>`.replaceAll(
+        <p><strong>Phone</strong>:<br />${phone}</p>
+        <p><strong>Email</strong>:<br />${email}</p>
+        <p><strong>Job Title</strong>:<br />${job_title}</p>
+        <p><strong>Tell Us More</strong>:<br /> ${tell_us_more}</p>`.replaceAll(
         "\n",
         "<br />"
       ),
       `Name:\n ${first_name} ${last_name}\n
-      Phone:\n ${phone}\n
-      Email:\n ${email}\n
-      Job Title:\n ${job_title}\n
-      Tell Us More:\n ${tell_us_more}`,
+          Phone:\n ${phone}\n
+          Email:\n ${email}\n
+          Job Title:\n ${job_title}\n
+          Tell Us More:\n ${tell_us_more}`,
       email
     );
     return { success: true };

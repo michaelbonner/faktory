@@ -8,14 +8,14 @@ export default {
   fieldsets: [
     {
       title: 'SEO & metadata',
-      name: 'metadata'
-    }
+      name: 'metadata',
+    },
   ],
   fields: [
     {
       name: 'title',
       type: 'string',
-      title: 'Title'
+      title: 'Title',
     },
     {
       name: 'content',
@@ -32,29 +32,30 @@ export default {
         { type: 'leadershipTeam' },
         { type: 'contactInfoSection' },
         { type: 'workItemsSection' },
-        { type: 'caseStudiesSection' }
-      ]
+        { type: 'caseStudiesSection' },
+        { type: 'gatedDocumentForm' },
+      ],
     },
     {
       name: 'description',
       type: 'text',
       title: 'Description',
       description: 'This description populates meta-tags on the webpage',
-      fieldset: 'metadata'
+      fieldset: 'metadata',
     },
     {
       name: 'openGraphImage',
       type: 'image',
       title: 'Open Graph Image',
       description: 'Image for sharing previews on Facebook, Twitter etc.',
-      fieldset: 'metadata'
-    }
+      fieldset: 'metadata',
+    },
   ],
 
   preview: {
     select: {
       title: 'title',
-      media: 'openGraphImage'
-    }
-  }
+      media: 'openGraphImage',
+    },
+  },
 }
