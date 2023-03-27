@@ -2,7 +2,9 @@ import PropTypes from "prop-types";
 import React from "react";
 import SanityImage from "./SanityImage";
 
-function Figure({ alt, caption, asset }) {
+function Figure({ value: blockContent }) {
+  const { alt, caption, asset } = blockContent;
+
   if (!asset) {
     return null;
   }
