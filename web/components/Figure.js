@@ -4,8 +4,9 @@ import SanityImage from "./SanityImage";
 
 function Figure({ alt, caption, asset }) {
   if (!asset) {
-    return undefined;
+    return null;
   }
+
   return (
     <figure>
       <SanityImage image={asset} alt={alt} />
