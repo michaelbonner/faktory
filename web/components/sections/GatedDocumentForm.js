@@ -35,19 +35,11 @@ function GatedDocumentForm({
     <>
       <div
         className={classNames(
-          "max-w-7xl mx-auto px-4 py-24 text-dark-gray",
+          "max-w-7xl mx-auto px-4 py-24 text-dark-gray user-content",
           "lg:py-36"
         )}
       >
-        <h1
-          className={classNames(
-            "text-5xl text-center leading-tight font-semibold font-sans text-gold pb-24",
-            "3xl:text-7xl",
-            "4xl:text-8xl"
-          )}
-        >
-          {title}
-        </h1>
+        <h2>{title}</h2>
         <div
           className={classNames(
             "grid grid-cols-1 max-w-7xl mx-auto px-4 text-dark-gray",
