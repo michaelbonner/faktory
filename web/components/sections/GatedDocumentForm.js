@@ -234,7 +234,7 @@ function GatedDocumentForm({
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 max-w-sm mx-auto">
+                <div className="grid grid-cols-1 max-w-sm mx-auto gap-4 mt-4">
                   <Turnstile
                     options={{
                       theme: "light",
