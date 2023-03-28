@@ -241,7 +241,9 @@ function GatedDocumentForm({
                     }}
                     siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
                   />
-                  <button className="standardButton">{submitButtonText}</button>
+                  <button className="standardButton">
+                    {submitButtonText || "Submit"}
+                  </button>
                 </div>
               </form>
             )}
