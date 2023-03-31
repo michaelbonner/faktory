@@ -31,7 +31,7 @@ function Footer({ navItems }) {
           </a>
         </Link>
         <div className="lg:col-span-2">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-1">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-1 gap-y-8">
             <div>
               <p className="underline underline-offset-4 font-semibold">Utah</p>
               <p>
