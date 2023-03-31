@@ -31,16 +31,36 @@ function Footer({ navItems }) {
           </a>
         </Link>
         <div className="lg:col-span-2">
-          <p>
-            702 West Porter Lane
-            <br />
-            Centerville, UT 84014
-          </p>
-          <p>
-            <span className="italic">info@faktorymail.com</span>
-            <br />
-            Tel: 385.393.3357
-          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-1 gap-y-8">
+            <div>
+              <p className="underline underline-offset-4 font-semibold">Utah</p>
+              <p>
+                702 West Porter Lane
+                <br />
+                Centerville, UT 84014
+              </p>
+              <p>
+                <span className="italic">info@faktorymail.com</span>
+                <br />
+                Tel: 385.393.3357
+              </p>
+            </div>
+            <div>
+              <p className="underline underline-offset-4 font-semibold">
+                Colorado
+              </p>
+              <p>
+                1800 Wazee St, Suite 300
+                <br />
+                Denver, CO 80202
+              </p>
+              <p>
+                <span className="italic">info@faktorymail.com</span>
+                <br />
+                Tel: 703.307.7001
+              </p>
+            </div>
+          </div>
         </div>
       </div>
       <div className="text-center grid gap-12">

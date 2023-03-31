@@ -235,15 +235,15 @@ function GatedDocumentForm({
                 </div>
 
                 <div className="grid grid-cols-1 max-w-sm mx-auto gap-4 mt-4">
+                  <button className="standardButton">
+                    {submitButtonText || "Submit"}
+                  </button>
                   <Turnstile
                     options={{
                       theme: "light",
                     }}
                     siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
                   />
-                  <button className="standardButton">
-                    {submitButtonText || "Submit"}
-                  </button>
                 </div>
               </form>
             )}
