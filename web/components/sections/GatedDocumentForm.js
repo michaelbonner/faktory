@@ -42,7 +42,7 @@ function GatedDocumentForm({
       >
         <h1
           className={classNames(
-            "text-5xl text-center leading-tight font-semibold font-sans text-gold pb-24",
+            "text-5xl text-center leading-normal tracking-wide font-semibold font-display text-gold pb-24",
             "3xl:text-7xl",
             "4xl:text-8xl"
           )}
