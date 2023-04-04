@@ -28,9 +28,14 @@ export default {
       type: 'string',
     },
     {
-      title: 'Return Home Button Text',
-      name: 'returnHomeButtonText',
-      type: 'string',
+      title: 'Success Message',
+      name: 'successMessage',
+      type: 'portableText',
+    },
+    {
+      name: 'cta',
+      type: 'cta',
+      title: 'Call to action',
     },
     {
       name: 'emailTo',

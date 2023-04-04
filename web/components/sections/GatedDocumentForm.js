@@ -4,8 +4,8 @@ import React, { useRef, useState } from "react";
 import { classNames } from "../../functions/classNames";
 import SimpleBlockContent from "../SimpleBlockContent";
 import SanityImage from "../SanityImage";
-import Link from "next/link";
 import { serializeForm } from "../../functions/serializeForm";
+import Cta from "../Cta";
 
 const classList = {
   fieldLabel: classNames("block font-medium"),
@@ -20,7 +20,8 @@ function GatedDocumentForm({
   description,
   emailTo,
   image,
-  returnHomeButtonText,
+  successMessage,
+  cta,
   submitButtonText,
   title,
   mailchimpListId,
@@ -63,18 +64,16 @@ function GatedDocumentForm({
           <div ref={formContainerRef}>
             {isSubmitted && (
               <div
-                className="my-12 grid items-stretch border-b border-gold"
+                className="my-12 grid items-stretch border-b border-gold user-content"
                 style={{ height: `${formRef?.current?.offsetHeight}px` }}
               >
-                <div>
-                  <h2 className="text-3xl font-bold text-gold">Thank you!</h2>
-                  <p className="my-8 text-lg">
-                    We have received your message and will be in touch shortly.
-                  </p>
-                  <Link href="/">
-                    <a className="standardButton">{returnHomeButtonText}</a>
-                  </Link>
+                {successMessage && (
+                  <SimpleBlockContent blocks={successMessage} />
+                )}
+                <div className="my-6">
+                  {cta && cta.route && <Cta {...cta} />}
                 </div>
+
                 <div className="min-h-[200px] flex items-center grow justify-end">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
@@ -255,6 +254,7 @@ function GatedDocumentForm({
 }
 
 GatedDocumentForm.propTypes = {
+  cta: PropTypes.object,
   description: PropTypes.array,
   emailTo: PropTypes.string,
   image: PropTypes.shape({
@@ -262,7 +262,7 @@ GatedDocumentForm.propTypes = {
       _ref: PropTypes.string,
     }),
   }),
-  returnHomeButtonText: PropTypes.string,
+  successMessage: PropTypes.arrayOf(PropTypes.object),
   submitButtonText: PropTypes.string,
   title: PropTypes.string,
   mailchimpListId: PropTypes.string,
