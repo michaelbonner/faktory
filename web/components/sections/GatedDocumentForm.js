@@ -70,9 +70,7 @@ function GatedDocumentForm({
                 {successMessage && (
                   <SimpleBlockContent blocks={successMessage} />
                 )}
-                <div className="my-6">
-                  {cta && cta.route && <Cta {...cta} />}
-                </div>
+                {cta && cta.route && <Cta {...cta} />}
 
                 <div className="min-h-[200px] flex items-center grow justify-end">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -108,7 +106,6 @@ function GatedDocumentForm({
                       body: JSON.stringify(data),
                     });
                     const response = await submitForm.json();
-                    const error = JSON.parse(response.error.response.text);
 
                     if (response.success) {
                       setIsSubmitted(true);
@@ -116,6 +113,7 @@ function GatedDocumentForm({
                         behavior: "smooth",
                       });
                     } else {
+                      const error = JSON.parse(response.error.response.text);
                       alert(
                         `There was a problem submitting the form. Error: ${error.title}`
                       );
