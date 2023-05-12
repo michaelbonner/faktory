@@ -17,7 +17,10 @@ const classList = {
 };
 
 function GatedDocumentForm({
-  description,
+  firstContentBlock,
+  secondContentBlock,
+  formTitle,
+  formBody,
   emailTo,
   image,
   successMessage,
@@ -41,8 +44,8 @@ function GatedDocumentForm({
     if (formContainer && content) {
       const { height: formHeight } = formContainer.getBoundingClientRect();
       const { height: contentHeight } = content.getBoundingClientRect();
-      setFormOffset((contentHeight - formHeight) / 2.5);
-      setSectionHeight(formHeight + contentHeight - formOffset + 10);
+      setFormOffset((contentHeight - formHeight) / 2.66);
+      setSectionHeight(formHeight + contentHeight - formOffset + 20);
     }
   }, [formContainerRef, contentRef, formOffset]);
 
@@ -69,36 +72,20 @@ function GatedDocumentForm({
         </h1>
         <div className="max-w-7xl mx-auto px-4 text-dark-gray overflow-clip">
           <div className={classNames("text-lg", "lg:text-xl")}>
-            <SimpleBlockContent blocks={description} />
+            <SimpleBlockContent blocks={firstContentBlock} />
             <div className="py-16 max-w-3xl mx-auto">
               <SanityImage image={image} />
             </div>
-            <p>
-              Duis magna cillum duis aute in tempor esse enim laboris ullamco
-              duis sunt elit. Magna duis laborum nulla ut duis ea occaecat
-              reprehenderit. Eiusmod incididunt pariatur veniam voluptate veniam
-              laborum culpa eiusmod. Aliquip mollit reprehenderit nulla et
-              officia sint reprehenderit id cillum labore deserunt cupidatat.
-              Duis magna cillum duis aute in tempor esse enim laboris ullamco
-              duis sunt elit. Magna duis laborum nulla ut duis ea occaecat
-              reprehenderit. Eiusmod incididunt pariatur veniam voluptate veniam
-              laborum culpa eiusmod. Aliquip mollit reprehenderit nulla et
-              officia sint reprehenderit id cillum labore deserunt cupidatat.
-              Duis magna cillum duis aute in tempor esse enim laboris ullamco
-              duis sunt elit. Magna duis laborum nulla ut duis ea occaecat
-              reprehenderit. Eiusmod incididunt pariatur veniam voluptate veniam
-              laborum culpa eiusmod. Aliquip mollit reprehenderit nulla et
-              officia sint reprehenderit id cillum labore deserunt cupidatat.
-            </p>
+            <SimpleBlockContent blocks={secondContentBlock} />
           </div>
         </div>
       </div>
       <div
-        className="w-full bg-gray-100 pb-14 absolute -mt-24"
+        className="w-full bg-gray-50 border-t border-gold pb-14 absolute -mt-24 p-16"
         style={{ marginTop: `-${formOffset}px` }}
         ref={formContainerRef}
       >
-        <div className="w-full grid items-center justify-center p-8">
+        <div className="w-full grid items-center justify-center">
           {!isSubmitted && (
             <div className="text-center pb-8 max-w-3xl mx-auto">
               <h3
@@ -108,12 +95,11 @@ function GatedDocumentForm({
                   "4xl:text-8xl"
                 )}
               >
-                Modal Title
+                {formTitle}
               </h3>
-              <p className={classNames("text-lg", "lg:text-xl")}>
-                Non deserunt proident ut cupidatat irure ex mollit esse veniam
-                anim proident adipisicing.
-              </p>
+              <div className={classNames("text-lg", "lg:text-xl")}>
+                <SimpleBlockContent blocks={formBody} />
+              </div>
             </div>
           )}
         </div>
@@ -180,7 +166,7 @@ function GatedDocumentForm({
           >
             <div
               className={classNames(
-                "grid grid-cols-1 gap-y-8 gap-x-4 transition-opacity px-16",
+                "grid grid-cols-1 gap-8 transition-opacity px-24",
                 "md:grid-cols-2"
               )}
             >
@@ -266,7 +252,7 @@ function GatedDocumentForm({
                   Tell Us More
                 </label>
                 <textarea
-                  rows="8"
+                  rows="4"
                   name="tell_us_more"
                   id="tell_us_more"
                   className={classList.textField}
@@ -297,7 +283,10 @@ function GatedDocumentForm({
 
 GatedDocumentForm.propTypes = {
   cta: PropTypes.object,
-  description: PropTypes.array,
+  firstContentBlock: PropTypes.array,
+  secondContentBlock: PropTypes.array,
+  formTitle: PropTypes.string,
+  formBody: PropTypes.array,
   emailTo: PropTypes.string,
   image: PropTypes.shape({
     asset: PropTypes.shape({
