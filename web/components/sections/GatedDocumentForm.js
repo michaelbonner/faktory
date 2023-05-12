@@ -41,11 +41,10 @@ function GatedDocumentForm({
     if (formContainer && content) {
       const { height: formHeight } = formContainer.getBoundingClientRect();
       const { height: contentHeight } = content.getBoundingClientRect();
-      console.log({ formHeight: formHeight, contentHeight: contentHeight });
-      setSectionHeight(formHeight + contentHeight);
+      setFormOffset((contentHeight - formHeight) / 2.5);
+      setSectionHeight(formHeight + contentHeight - formOffset + 10);
     }
-  }, [formContainerRef, contentRef]);
-  console.log({ sectionHeight, formOffset });
+  }, [formContainerRef, contentRef, formOffset]);
 
   return (
     <div
@@ -71,7 +70,7 @@ function GatedDocumentForm({
         <div className="max-w-7xl mx-auto px-4 text-dark-gray overflow-clip">
           <div className={classNames("text-lg", "lg:text-xl")}>
             <SimpleBlockContent blocks={description} />
-            <div className="py-12 max-w-3xl mx-auto">
+            <div className="py-16 max-w-3xl mx-auto">
               <SanityImage image={image} />
             </div>
             <p>
@@ -95,7 +94,7 @@ function GatedDocumentForm({
         </div>
       </div>
       <div
-        className="w-full bg-gray-100 pb-12 absolute -mt-24"
+        className="w-full bg-gray-100 pb-14 absolute -mt-24"
         style={{ marginTop: `-${formOffset}px` }}
         ref={formContainerRef}
       >
