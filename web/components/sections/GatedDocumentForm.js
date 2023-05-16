@@ -44,7 +44,7 @@ function GatedDocumentForm({
     if (formContainer && content) {
       const { height: formHeight } = formContainer.getBoundingClientRect();
       const { height: contentHeight } = content.getBoundingClientRect();
-      setFormOffset((contentHeight - formHeight) / 2.66);
+      setFormOffset((contentHeight - formHeight) / 3.75);
       setSectionHeight(formHeight + contentHeight - formOffset + 20);
     }
   }, [formContainerRef, contentRef, formOffset]);
@@ -57,55 +57,35 @@ function GatedDocumentForm({
       <div
         ref={contentRef}
         className={classNames(
-          "max-w-7xl mx-auto px-4 pt-24 text-dark-gray",
+          "max-w-7xl mx-auto pt-24 text-dark-gray user-content",
           "lg:pt-36"
         )}
       >
-        <h1
-          className={classNames(
-            "text-5xl text-center leading-normal tracking-wide font-semibold font-display text-gold pb-24",
-            "3xl:text-7xl",
-            "4xl:text-8xl"
-          )}
-        >
-          {title}
-        </h1>
-        <div className="max-w-7xl mx-auto px-4 text-dark-gray overflow-clip">
-          <div className={classNames("text-lg", "lg:text-xl")}>
-            <SimpleBlockContent blocks={firstContentBlock} />
-            <div className="py-16 max-w-3xl mx-auto">
-              <SanityImage image={image} />
-            </div>
-            <SimpleBlockContent blocks={secondContentBlock} />
+        <h1 className="text-gold text-center py-6">{title}</h1>
+        <div className="max-w-7xl mx-auto overflow-clip">
+          <SimpleBlockContent blocks={firstContentBlock} />
+          <div className="py-16 max-w-3xl mx-auto">
+            <SanityImage image={image} />
           </div>
+          <SimpleBlockContent blocks={secondContentBlock} />
         </div>
       </div>
       <div
-        className="w-full bg-gray-50 border-t border-gold pb-14 absolute -mt-24 p-16"
+        className={`w-full bg-gray-50 border-t border-gold absolute -mt-[${formOffset}px] py-12`}
         style={{ marginTop: `-${formOffset}px` }}
         ref={formContainerRef}
       >
         <div className="w-full grid items-center justify-center">
           {!isSubmitted && (
-            <div className="text-center pb-8 max-w-3xl mx-auto">
-              <h3
-                className={classNames(
-                  "text-5xl text-center leading-normal tracking-wide font-semibold font-display text-gold pb-2",
-                  "3xl:text-7xl",
-                  "4xl:text-8xl"
-                )}
-              >
-                {formTitle}
-              </h3>
-              <div className={classNames("text-lg", "lg:text-xl")}>
-                <SimpleBlockContent blocks={formBody} />
-              </div>
+            <div className="text-center py-8 max-w-3xl mx-auto user-content">
+              <h2>{formTitle}</h2>
+              <SimpleBlockContent blocks={formBody} />
             </div>
           )}
         </div>
         {isSubmitted && (
           <div
-            className="py-12 grid gap-y-4 items-stretch border-b border-gold user-content max-w-3xl mx-auto justify-center text-center"
+            className="grid gap-y-4 items-stretch border-b border-gold user-content max-w-3xl mx-auto justify-center text-center"
             style={{ height: `${formRef?.current?.offsetHeight}px` }}
           >
             {successMessage && <SimpleBlockContent blocks={successMessage} />}
@@ -166,8 +146,7 @@ function GatedDocumentForm({
           >
             <div
               className={classNames(
-                "grid grid-cols-1 gap-8 transition-opacity px-24",
-                "md:grid-cols-2"
+                "grid grid-cols-1 gap-8 transition-opacity max-w-2xl mx-auto py-6"
               )}
             >
               <div>
@@ -197,19 +176,6 @@ function GatedDocumentForm({
                 />
               </div>
               <div>
-                <label className={classList.fieldLabel} htmlFor="phone">
-                  Phone*
-                </label>
-                <input
-                  className={classList.textField}
-                  type="text"
-                  name="phone"
-                  id="phone"
-                  placeholder="(000) 000-0000"
-                  required
-                />
-              </div>
-              <div>
                 <label className={classList.fieldLabel} htmlFor="email">
                   Email*
                 </label>
@@ -221,43 +187,6 @@ function GatedDocumentForm({
                   placeholder="you@organization.com"
                   required
                 />
-              </div>
-              <div>
-                <label className={classList.fieldLabel} htmlFor="job_title">
-                  Job Title
-                </label>
-                <input
-                  className={classList.textField}
-                  type="text"
-                  name="job_title"
-                  id="job_title"
-                  placeholder="Job Title"
-                />
-              </div>
-              <div>
-                <label className={classList.fieldLabel} htmlFor="organization">
-                  Organization
-                </label>
-                <input
-                  className={classList.textField}
-                  type="text"
-                  name="organization"
-                  id="organization"
-                  placeholder="Organization"
-                  required
-                />
-              </div>
-              <div className="md:col-span-2">
-                <label className={classList.fieldLabel} htmlFor="tell_us_more">
-                  Tell Us More
-                </label>
-                <textarea
-                  rows="4"
-                  name="tell_us_more"
-                  id="tell_us_more"
-                  className={classList.textField}
-                  placeholder="What brand or marketing problems are you trying to solve?"
-                ></textarea>
               </div>
             </div>
 
