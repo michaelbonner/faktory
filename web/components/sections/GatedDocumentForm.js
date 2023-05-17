@@ -1,6 +1,6 @@
 import { Turnstile } from "@marsidev/react-turnstile";
 import PropTypes from "prop-types";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { classNames } from "../../functions/classNames";
 import SimpleBlockContent from "../SimpleBlockContent";
 import SanityImage from "../SanityImage";
@@ -41,13 +41,16 @@ function GatedDocumentForm({
   useEffect(() => {
     const formContainer = formContainerRef.current;
     const content = contentRef.current;
-    if (formContainer && content) {
-      const { height: formHeight } = formContainer.getBoundingClientRect();
+    const form = formRef.current;
+    if (formContainer && content && form) {
+      const { height: formContainerHeight } =
+        formContainer.getBoundingClientRect();
+      const { height: formHeight } = form.getBoundingClientRect();
       const { height: contentHeight } = content.getBoundingClientRect();
-      setFormOffset((contentHeight - formHeight) / 3.75);
-      setSectionHeight(formHeight + contentHeight - formOffset + 20);
+      setSectionHeight(formContainerHeight + contentHeight);
+      setFormOffset(formHeight - formContainerHeight);
     }
-  }, [formContainerRef, contentRef, formOffset]);
+  }, [formContainerRef, contentRef, formRef]);
 
   return (
     <div
@@ -63,19 +66,23 @@ function GatedDocumentForm({
       >
         <h1 className="text-gold text-center py-6">{title}</h1>
         <div className="max-w-7xl mx-auto overflow-clip">
-          <SimpleBlockContent blocks={firstContentBlock} />
+          <div className="px-12">
+            <SimpleBlockContent blocks={firstContentBlock} />
+          </div>
           <div className="py-16 max-w-3xl mx-auto">
             <SanityImage image={image} />
           </div>
-          <SimpleBlockContent blocks={secondContentBlock} />
+          <div className="px-12">
+            <SimpleBlockContent blocks={secondContentBlock} />
+          </div>
         </div>
       </div>
       <div
-        className={`w-full bg-gray-50 border-t border-gold absolute -mt-[${formOffset}px] py-12`}
-        style={{ marginTop: `-${formOffset}px` }}
+        className={`w-full bg-gray-50 border-t border-gold absolute top-[${sectionHeight}px] left-0`}
+        style={{ marginTop: `${formOffset}px` }}
         ref={formContainerRef}
       >
-        <div className="w-full grid items-center justify-center">
+        <div className="w-full grid items-center justify-center px-4">
           {!isSubmitted && (
             <div className="text-center py-8 max-w-3xl mx-auto user-content">
               <h2>{formTitle}</h2>
@@ -85,7 +92,7 @@ function GatedDocumentForm({
         </div>
         {isSubmitted && (
           <div
-            className="grid gap-y-4 items-stretch border-b border-gold user-content max-w-3xl mx-auto justify-center text-center"
+            className="grid gap-y-4 items-stretch border-b border-gold user-content max-w-3xl mx-auto justify-center text-center px-4"
             style={{ height: `${formRef?.current?.offsetHeight}px` }}
           >
             {successMessage && <SimpleBlockContent blocks={successMessage} />}
@@ -146,7 +153,7 @@ function GatedDocumentForm({
           >
             <div
               className={classNames(
-                "grid grid-cols-1 gap-8 transition-opacity max-w-2xl mx-auto py-6"
+                "grid grid-cols-1 gap-8 transition-opacity max-w-2xl mx-auto py-6 px-4"
               )}
             >
               <div>
