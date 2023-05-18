@@ -119,7 +119,7 @@ function GatedDocumentForm({
         </div>
         {isSubmitted && (
           <div
-            className="grid gap-y-4 items-stretch border-b border-gold user-content max-w-3xl mx-auto justify-center text-center px-4"
+            className="grid gap-y-4 items-stretch border-b border-gold user-content max-w-3xl mx-auto justify-center text-center px-4 pt-8"
             style={{ height: `${formRef?.current?.offsetHeight}px` }}
           >
             {successMessage && <SimpleBlockContent blocks={successMessage} />}
