@@ -37,26 +37,30 @@ function GatedDocumentForm({
   const formContainerRef = useRef(null);
   const formRef = useRef(null);
   const contentRef = useRef(null);
+  const lastSentenceRef = useRef(null);
 
   useEffect(() => {
     const formContainer = formContainerRef.current;
     const content = contentRef.current;
-    const form = formRef.current;
-    if (formContainer && content && form) {
+    const lastSentence = lastSentenceRef.current;
+
+    if (formContainer && content && lastSentence) {
       const { height: formContainerHeight } =
         formContainer.getBoundingClientRect();
-      const { height: formHeight } = form.getBoundingClientRect();
       const { height: contentHeight } = content.getBoundingClientRect();
-      setSectionHeight(formContainerHeight + contentHeight);
-      setFormOffset(formHeight - formContainerHeight);
+      const { height: lastSentenceHeight } =
+        lastSentence.getBoundingClientRect();
+
+      const newFormOffset = lastSentenceHeight / 2;
+      const newSectionHeight = formContainerHeight + contentHeight + 165;
+
+      setFormOffset(newFormOffset);
+      setSectionHeight(newSectionHeight);
     }
-  }, [formContainerRef, contentRef, formRef]);
+  }, [formContainerRef, contentRef, lastSentenceRef]);
 
   return (
-    <div
-      className="relative overflow-hidden"
-      style={{ height: `${sectionHeight}px` }}
-    >
+    <div className="relative" style={{ height: `${sectionHeight}px` }}>
       <div
         ref={contentRef}
         className={classNames(
@@ -65,7 +69,7 @@ function GatedDocumentForm({
         )}
       >
         <h1 className="text-gold text-center py-6">{title}</h1>
-        <div className="max-w-7xl mx-auto overflow-clip">
+        <div className="max-w-7xl mx-auto">
           <div className="px-12">
             <SimpleBlockContent blocks={firstContentBlock} />
           </div>
@@ -77,10 +81,19 @@ function GatedDocumentForm({
           </div>
         </div>
       </div>
+      <p className="px-12 truncate max-w-7xl mx-auto" ref={lastSentenceRef}>
+        Officia sit laborum aute eu minim adipisicing non eu minim velit aute
+        occaecat velit aute occaecat.
+      </p>
       <div
-        className={`w-full bg-gray-50 border-t border-gold absolute top-[${sectionHeight}px] left-0`}
-        style={{ marginTop: `${formOffset}px` }}
         ref={formContainerRef}
+        className={classNames(
+          "w-full bg-gray-50 border-t border-gold absolute left-0"
+        )}
+        style={{
+          marginTop: `${-formOffset}px`,
+          paddingBottom: "75px",
+        }}
       >
         <div className="w-full grid items-center justify-center px-4">
           {!isSubmitted && (
@@ -153,7 +166,7 @@ function GatedDocumentForm({
           >
             <div
               className={classNames(
-                "grid grid-cols-1 gap-8 transition-opacity max-w-2xl mx-auto py-6 px-4"
+                "grid grid-cols-1 gap-8 transition-opacity max-w-2xl mx-auto pt-6 px-4"
               )}
             >
               <div>
@@ -197,7 +210,7 @@ function GatedDocumentForm({
               </div>
             </div>
 
-            <div className="grid max-w-sm mx-auto gap-4 mt-4">
+            <div className="grid max-w-sm mx-auto gap-4 pt-6">
               <button className="standardButton">
                 {submitButtonText || "Submit"}
               </button>
