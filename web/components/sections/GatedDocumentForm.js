@@ -1,11 +1,11 @@
 import { Turnstile } from "@marsidev/react-turnstile";
 import PropTypes from "prop-types";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { classNames } from "../../functions/classNames";
-import SimpleBlockContent from "../SimpleBlockContent";
-import SanityImage from "../SanityImage";
 import { serializeForm } from "../../functions/serializeForm";
 import Cta from "../Cta";
+import SanityImage from "../SanityImage";
+import SimpleBlockContent from "../SimpleBlockContent";
 
 const classList = {
   fieldLabel: classNames("block font-medium"),
@@ -31,6 +31,7 @@ function GatedDocumentForm({
 }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
   const [sectionHeight, setSectionHeight] = useState(0);
   const [formOffset, setFormOffset] = useState(0);
 
@@ -44,6 +45,10 @@ function GatedDocumentForm({
     const content = contentRef.current;
     const lastSentence = lastSentenceRef.current;
 
+    if (window.innerWidth >= 1024) {
+      setIsDesktop(true);
+    }
+
     if (formContainer && content && lastSentence) {
       const { height: formContainerHeight } =
         formContainer.getBoundingClientRect();
@@ -51,13 +56,15 @@ function GatedDocumentForm({
       const { height: lastSentenceHeight } =
         lastSentence.getBoundingClientRect();
 
+      const headerHeight = isDesktop ? 0 : 80;
       const newFormOffset = lastSentenceHeight / 2;
-      const newSectionHeight = formContainerHeight + contentHeight + 165;
+      const newSectionHeight =
+        formContainerHeight + contentHeight + lastSentenceHeight + headerHeight;
 
       setFormOffset(newFormOffset);
       setSectionHeight(newSectionHeight);
     }
-  }, [formContainerRef, contentRef, lastSentenceRef]);
+  }, [formContainerRef, contentRef, lastSentenceRef, isDesktop]);
 
   return (
     <div className="relative" style={{ height: `${sectionHeight}px` }}>
@@ -68,20 +75,27 @@ function GatedDocumentForm({
           "lg:pt-36"
         )}
       >
-        <h1 className="text-gold text-center py-6">{title}</h1>
+        <h1
+          className={classNames("text-gold text-center py-6 px-4", "lg:px-0")}
+        >
+          {title}
+        </h1>
         <div className="max-w-7xl mx-auto">
-          <div className="px-12">
+          <div className={classNames("px-5", "lg:px-12")}>
             <SimpleBlockContent blocks={firstContentBlock} />
           </div>
           <div className="py-16 max-w-3xl mx-auto">
             <SanityImage image={image} />
           </div>
-          <div className="px-12">
+          <div className={classNames("px-5", "lg:px-12")}>
             <SimpleBlockContent blocks={secondContentBlock} />
           </div>
         </div>
       </div>
-      <p className="px-12 truncate max-w-7xl mx-auto" ref={lastSentenceRef}>
+      <p
+        className={classNames("px-5 truncate max-w-7xl mx-auto", "lg:px-12")}
+        ref={lastSentenceRef}
+      >
         Officia sit laborum aute eu minim adipisicing non eu minim velit aute
         occaecat velit aute occaecat.
       </p>
