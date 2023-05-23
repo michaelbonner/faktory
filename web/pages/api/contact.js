@@ -53,8 +53,6 @@ export default async function handler(request, response) {
     email,
     first_name,
     last_name,
-    phone,
-    organization,
     mailchimpListId,
   };
 
@@ -131,8 +129,6 @@ const addToMailchimpList = async ({
   email,
   first_name,
   last_name,
-  phone,
-  organization,
   mailchimpListId,
 }) => {
   try {
@@ -142,8 +138,6 @@ const addToMailchimpList = async ({
       merge_fields: {
         FNAME: first_name,
         LNAME: last_name,
-        PHONE: phone,
-        COMPANY: organization,
       },
     });
     return { success: true };

@@ -9,8 +9,8 @@ export default {
       type: 'string',
     },
     {
-      title: 'Description',
-      name: 'description',
+      title: 'First Content Block',
+      name: 'firstContentBlock',
       type: 'array',
       of: [{ type: 'block' }],
     },
@@ -21,6 +21,23 @@ export default {
       options: {
         hotspot: true,
       },
+    },
+    {
+      title: 'Second Content Block',
+      name: 'secondContentBlock',
+      type: 'array',
+      of: [{ type: 'block' }],
+    },
+    {
+      title: 'Sign Up Form Title',
+      name: 'formTitle',
+      type: 'string',
+    },
+    {
+      title: 'Sign Up Form Body',
+      name: 'formBody',
+      type: 'array',
+      of: [{ type: 'block' }],
     },
     {
       title: 'Submit Button Text',
