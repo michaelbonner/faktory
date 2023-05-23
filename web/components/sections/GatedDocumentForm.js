@@ -19,6 +19,7 @@ const classList = {
 function GatedDocumentForm({
   firstContentBlock,
   secondContentBlock,
+  cutOffText,
   formTitle,
   formBody,
   emailTo,
@@ -96,8 +97,7 @@ function GatedDocumentForm({
         className={classNames("px-5 truncate max-w-7xl mx-auto", "lg:px-12")}
         ref={lastSentenceRef}
       >
-        Officia sit laborum aute eu minim adipisicing non eu minim velit aute
-        occaecat velit aute occaecat.
+        {cutOffText}
       </p>
       <div
         ref={formContainerRef}
@@ -248,6 +248,7 @@ GatedDocumentForm.propTypes = {
   cta: PropTypes.object,
   firstContentBlock: PropTypes.array,
   secondContentBlock: PropTypes.array,
+  cutOffText: PropTypes.string,
   formTitle: PropTypes.string,
   formBody: PropTypes.array,
   emailTo: PropTypes.string,
