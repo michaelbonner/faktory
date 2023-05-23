@@ -29,6 +29,11 @@ export default {
       of: [{ type: 'block' }],
     },
     {
+      title: 'Cut Off Text',
+      name: 'cutOffText',
+      type: 'string',
+    },
+    {
       title: 'Sign Up Form Title',
       name: 'formTitle',
       type: 'string',
